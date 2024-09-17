@@ -1,5 +1,8 @@
+"use client";
+
+import * as motion from "framer-motion/client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 type Props = {
   currentPage: "home" | "projects" | "techstack" | "interests";
@@ -15,14 +18,27 @@ function Nav({ currentPage, className }: Props) {
     "group-hover:translate-x-[394px]",
   ];
 
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className={`w-[150px] h-[150px] z-50 ${className} group `}>
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`w-[150px] h-[150px] z-50 ${className} group `}
+    >
       {currentPage === "home" ? (
         <Link
           href={`/`}
           className="absolute group-hover:rotate-[15deg] transition-all z-50"
         >
-          <img
+          <motion.img
+            animate={{ y: isHovered ? 0 : [0, -15, 0, -15, 0] }}
+            transition={{
+              repeat: Infinity,
+              repeatDelay: 3,
+              duration: 1.5,
+              ease: [0.6, 0.01, -0.05, 0.95],
+            }}
             src="/assets/images/gohere-stamp.png"
             alt="HoverButton"
             className="z-50"
@@ -38,6 +54,7 @@ function Nav({ currentPage, className }: Props) {
       )}
       {NAV_LINKS.map((link, index) => (
         <Link
+          key={index}
           href={`/${link}`}
           className={`absolute hover:scale-110 transition-all ${
             NAV_TRANSITIONS[index]
