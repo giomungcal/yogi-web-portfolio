@@ -1,3 +1,4 @@
+import * as motion from "framer-motion/client";
 import Image from "next/image";
 import Nav from "../_components/common/Nav";
 import Wrapper from "../_components/layout/Wrapper";
@@ -17,9 +18,7 @@ export default function Home() {
         className="z-10 absolute right-0 top-0 -translate-y-16 translate-x-20 overflow-hidden"
       />
       <section className="w-full h-full grid grid-cols-3 grid-rows-2 overflow-hidden">
-        <div>
-          <Nav isHome={true} className="ml-8" />
-        </div>
+        <Nav currentPage="home" className="ml-8" />
         <div>
           <img
             src="/assets/images/mail-stamps.png"
@@ -71,15 +70,19 @@ export default function Home() {
             </a>{" "}
           </div>
         </div>
-        <img
+        <motion.img
           src="/assets/images/johnny-banner.png"
           alt="Johnny Banner"
-          className="absolute left-0 bottom-0 w-[350px] -translate-x-40 translate-y-16 scale-100 z-10 hover:scale-110 transition-all"
+          className="absolute bottom-0 w-[350px] top-[5px] left-[-158px]"
+          whileHover={{ scale: [null, 1.1, 1.1] }}
+          transition={{ duration: 0.3 }}
         />
-        <img
+        <motion.img
           src="/assets/images/gio-banner.png"
           alt="Gio banner"
-          className="absolute left-0 bottom-0 w-[368px] translate-x-20 translate-y-20 scale-100 hover:scale-110 transition-all"
+          className="absolute bottom-0 w-[368px] top-[128px] left-[110px]"
+          whileHover={{ scale: [null, 1.1, 1.1] }}
+          transition={{ duration: 0.3 }}
         />
       </section>
     </Wrapper>
