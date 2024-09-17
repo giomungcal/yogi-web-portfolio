@@ -1,5 +1,6 @@
 "use client";
 
+import { useLoaderContext } from "@/app/_context/LoaderContext";
 import { AnimatePresence } from "framer-motion";
 import * as motion from "framer-motion/client";
 import Link from "next/link";
@@ -29,11 +30,12 @@ const NAV_COLORS = [
 function Nav({ currentPage, isMobile, className }: Props) {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const { navigateTo } = useLoaderContext();
 
   return isMobile ? (
     <>
       <div
-        className={`flex w-full md:hidden gap-6 justify-center ${className} kode-mono-bold text-sm sm:text-lg font-semibold overflow-hidden`}
+        className={`${className} flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
       >
         <a
           onClick={() => setIsVisible(true)}
@@ -53,9 +55,12 @@ function Nav({ currentPage, isMobile, className }: Props) {
       className={`hidden md:block w-[150px] h-[150px] z-50 ${className} group `}
     >
       {currentPage === "home" ? (
-        <Link
-          href={`/`}
-          className="absolute group-hover:rotate-[15deg] transition-all z-50"
+        <a
+          onClick={(e) => {
+            e.preventDefault();
+            navigateTo("/");
+          }}
+          className="cursor-pointer absolute group-hover:rotate-[15deg] transition-all z-50"
         >
           <motion.img
             animate={{ y: isHovered ? 0 : [0, -15, 0, -15, 0] }}
@@ -69,27 +74,33 @@ function Nav({ currentPage, isMobile, className }: Props) {
             alt="HoverButton"
             className="z-50"
           />
-        </Link>
+        </a>
       ) : (
-        <Link
-          href={`/`}
-          className="absolute rotate-[8deg] group-hover:rotate-12 hover:scale-110 transition-all"
+        <a
+          onClick={(e) => {
+            e.preventDefault();
+            navigateTo("/");
+          }}
+          className="cursor-pointer absolute rotate-[8deg] group-hover:rotate-12 hover:scale-110 transition-all"
         >
           <img src="/assets/images/home-stamp.png" alt="HoverButton" />
-        </Link>
+        </a>
       )}
       {NAV_LINKS.map(
         (link, index) =>
           link !== "home" && (
-            <Link
+            <a
               key={index}
-              href={`/${link}`}
-              className={`absolute hover:scale-110 transition-all ${
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo(`/${link}`);
+              }}
+              className={`cursor-pointer absolute hover:scale-110 transition-all ${
                 NAV_TRANSITIONS[index - 1]
               } ${link === currentPage && "z-50"}`}
             >
               <img src={`/assets/images/${link}-stamp.png`} alt={link} />
-            </Link>
+            </a>
           )
       )}
     </nav>

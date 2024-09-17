@@ -1,5 +1,4 @@
 import * as motion from "framer-motion/client";
-import Image from "next/image";
 import Nav from "../_components/common/Nav";
 import Wrapper from "../_components/layout/Wrapper";
 
@@ -13,7 +12,7 @@ export default function Home() {
       <Wrapper borderColor={"light-purple"}>
         <div className="hidden md:flex z-10 w-[290px] h-[34px] items-center justify-center bg-[#B2BFFF] absolute -right-24 top-4 rotate-[42deg] border-black border-[2px] overflow-hidden">
           <p className="text-[#FFF6F2] roboto-flex text-2xl flex flex-shrink-0">
-            YOGI ✰ YOGI ✰ YOGI ✰
+            {"YOGI ✰ YOGI ✰ YOGI ✰"}
           </p>
         </div>
         <section className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden ">
