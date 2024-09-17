@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f5d1ed;
+  --foreground: #292929;
+
+  /* Border Colors */
+  --light-purple: #c286b9;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #292929;
+    --foreground: #f5d1ed;
+  }
+} */
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
