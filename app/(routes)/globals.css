@@ -48,6 +48,13 @@
   font-style: normal;
 }
 
+.kode-mono-bold {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 .roboto-flex {
   font-family: "Roboto Flex", sans-serif;
   font-optical-sizing: auto;

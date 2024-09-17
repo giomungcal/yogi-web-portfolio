@@ -21,7 +21,7 @@ function Wrapper({ children, borderColor }: Props) {
   return (
     <div
       style={borderStyle}
-      className={` w-[80%] md:w-[864px] md:h-[450px] bg-[#F8F8F8] p-4 drop-shadow-lg`}
+      className={` w-[80%] md:w-[864px] md:h-[450px] bg-[#F8F8F8] md:p-4 drop-shadow-lg `}
     >
       {children}
     </div>

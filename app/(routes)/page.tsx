@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Wrapper borderColor={"light-purple"}>
-        <div className="z-10 w-[290px] h-[34px] flex items-center justify-center bg-[#B2BFFF] absolute -right-24 top-4 rotate-[42deg] border-black border-[2px] overflow-hidden">
+        <div className="hidden md:flex z-10 w-[290px] h-[34px] items-center justify-center bg-[#B2BFFF] absolute -right-24 top-4 rotate-[42deg] border-black border-[2px] overflow-hidden">
           <p className="text-[#FFF6F2] roboto-flex text-2xl flex flex-shrink-0">
             YOGI ✰ YOGI ✰ YOGI ✰
           </p>
@@ -94,7 +94,7 @@ export default function Home() {
             transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
           />
         </section>
-        <p className="block md:hidden text-center text-[12px] mb-4 italic opacity-40">
+        <p className="block md:hidden text-center text-[12px] mb-8 italic opacity-50 px-8">
           note: use desktop for a better experience
         </p>
       </Wrapper>
