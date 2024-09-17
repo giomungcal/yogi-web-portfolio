@@ -6,10 +6,11 @@ import React, { useState } from "react";
 
 type Props = {
   currentPage: "home" | "projects" | "techstack" | "interests";
+  isMobile: boolean;
   className?: string;
 };
 
-function Nav({ currentPage, className }: Props) {
+function Nav({ currentPage, isMobile, className }: Props) {
   const NAV_LINKS = ["projects", "techstack", "interests"];
 
   const NAV_TRANSITIONS = [
@@ -20,11 +21,28 @@ function Nav({ currentPage, className }: Props) {
 
   const [isHovered, setIsHovered] = useState(false);
 
-  return (
+  return isMobile ? (
+    <div
+      className={`flex w-full min-w-[100px] md:hidden gap-6 justify-center ${className} kode-mono-regular text-sm sm:text-lg font-semibold`}
+    >
+      <Link href={`/`}>
+        <span>home</span>{" "}
+      </Link>
+      <Link href={`/projects`}>
+        <span>projects</span>{" "}
+      </Link>
+      <Link href={`/techstack`}>
+        <span>techstack</span>
+      </Link>
+      <Link href={`/interests`}>
+        <span>interests</span>
+      </Link>
+    </div>
+  ) : (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`w-[150px] h-[150px] z-50 ${className} group `}
+      className={`hidden md:block w-[150px] h-[150px] z-50 ${className} group `}
     >
       {currentPage === "home" ? (
         <Link
