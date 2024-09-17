@@ -26,6 +26,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontSize: {
+        "custom-hi": "4.875rem",
+        "custom-gio": "8.75rem",
+      },
     },
   },
   plugins: [],
