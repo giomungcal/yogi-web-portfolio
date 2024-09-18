@@ -1,6 +1,6 @@
 "use client";
 
-import { useLoaderContext } from "@/app/_context/LoaderContext";
+import { useLoaderContext } from "@/app/_context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 

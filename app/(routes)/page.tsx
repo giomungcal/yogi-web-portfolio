@@ -99,7 +99,7 @@ function MailStamp() {
 
 function LandingBio() {
   return (
-    <p className="kode-mono-regular text-center md:text-right text-[13px] md:w-[310px] px-12 md:px-0">
+    <p className="kode-mono-regular text-center md:text-right text-[13px] md:text-xs lg:text-[13px] md:w-[230px] lg:w-[310px] px-12 md:px-0 lg:leading-5">
       a front-end developer shifting from a career in information security after
       realizing where my passion really lies. i’ve decided to dive back into web
       development, to pursue what my heart truly wants ♡
@@ -112,7 +112,7 @@ function JohnnyBanner() {
     <motion.img
       src="/assets/images/johnny-banner.png"
       alt="Johnny Banner"
-      className="hidden md:block absolute bottom-0 w-[350px] top-[5px] left-[-158px]"
+      className="hidden md:block absolute bottom-0 lg:w-[350px] md:w-[300px] lg:top-[5px] md:top-[90px] lg:left-[-158px] md:left-[-98px]"
       whileHover={{ scale: [null, 1.1, 1.1] }}
       transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
     />
@@ -124,7 +124,7 @@ function GioBanner() {
     <motion.img
       src="/assets/images/gio-banner.png"
       alt="Gio banner"
-      className="hidden md:block absolute bottom-0 w-[368px] top-[128px] left-[110px]"
+      className="hidden md:block absolute bottom-0 lg:w-[368px] md:w-[330px] top-[128px] left-[110px]"
       whileHover={{ scale: [null, 1.1, 1.1] }}
       transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
     />

@@ -1,9 +1,8 @@
 "use client";
 
-import { useLoaderContext } from "@/app/_context/LoaderContext";
+import { useLoaderContext } from "@/app/_context/AppContext";
 import { AnimatePresence } from "framer-motion";
 import * as motion from "framer-motion/client";
-import Link from "next/link";
 import { Dispatch, SetStateAction, useState } from "react";
 
 type Props = {
@@ -13,12 +12,6 @@ type Props = {
 };
 
 const NAV_LINKS = ["home", "projects", "techstack", "interests"];
-
-const NAV_TRANSITIONS = [
-  "group-hover:translate-x-[135px] z-10",
-  "group-hover:translate-x-[265px] group-hover:-rotate-12",
-  "group-hover:translate-x-[394px]",
-];
 
 const NAV_COLORS = [
   "bg-[#F5D1ED]",
@@ -75,7 +68,7 @@ function MobileNavTrigger({ className, setIsVisible }: MobileNavTriggerProps) {
   return (
     <div
       className={`${
-        className && className
+        className ? className : ""
       } flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
     >
       <a
@@ -186,6 +179,12 @@ type DesktopNavButtonProps = {
 
 function DesktopNavButton({ link, index, currentPage }: DesktopNavButtonProps) {
   const { navigateTo } = useLoaderContext();
+
+  const NAV_TRANSITIONS = [
+    "group-hover:translate-x-[135px] z-[10]",
+    "group-hover:translate-x-[265px] group-hover:-rotate-12 z-[9]",
+    "group-hover:translate-x-[394px] z-[8]",
+  ];
 
   return (
     <a

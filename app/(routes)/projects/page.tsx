@@ -79,49 +79,51 @@ function Projects() {
 
   return (
     <Wrapper borderColor={"lightgreen"}>
-      <div className="flex w-full h-full md:justify-around p-2">
-        <div>
+      <div className="flex w-full h-full md:justify-around md:p-2">
+        <div className="md:mr-6">
           <Nav isMobile={false} currentPage="projects" />
           <motion.img
             src="/assets/images/jolyne-banner.png"
             alt="Jolyne Banner"
-            className="hidden absolute md:block bottom-[-85px] left-[-60px] w-[282px]  "
+            className="hidden absolute md:block lg:bottom-[-85px] md:bottom-[-55px] left-[-60px] lg:w-[282px] md:w-[260px] "
             whileHover={{ scale: [null, 1.1, 1.1] }}
             transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
           />
         </div>
-        <div className="flex flex-col w-[636px] justify-center items-start">
-          <h1 className="text-[#94BD33] md:text-[128px] danfo-comb md:mt-[-15px] md:mb-[-5px] ">
-            PROJECTS
-          </h1>
-          <Nav isMobile={true} currentPage="projects" />
-          <div className="grid grid-cols-4 h-full w-full -mt-4 gap-3">
-            {PROJECTS.map(
-              (
-                { id, name, subtext, title, techstack, website, github },
-                index
-              ) => (
-                <button
-                  key={id}
-                  className="flex flex-col justify-center items-center bg-[#FFFBEE] p-4"
-                  style={useBorder({
-                    borderWidth: "1.5px",
-                    borderColor: "#E3801C",
-                    borderDash: "20px",
-                    borderSpacing: "31px",
-                  })}
-                >
-                  <span className="kode-mono-bold text-lg leading-4 text-[#DB874B] ">
-                    {name}
-                  </span>
-                  {subtext && (
-                    <p className="kode-mono-regular text-xs text-[#DB874B]">
-                      {subtext}
-                    </p>
-                  )}
-                </button>
-              )
-            )}
+        <div className="flex flex-col justify-center md:items-start">
+          <div className="relative">
+            <h1 className="text-[#94BD33] lg:text-[123px] text-[40px] sm:text-[96px] danfo-comb lg:mt-[-15px] lg:mb-[-5px]">
+              PROJECTS
+            </h1>
+            <img
+              src="/assets/images/stamp2.png"
+              alt="Jojo Stamp"
+              className="z-10 w-[50px] md:w-[60px] lg:w-[70px] absolute md:right-[-30px] md:bottom-[0px] rotate-[15deg] hover:scale-110 transition-all "
+            />
+          </div>
+          {/* <Nav currentPage="projects" /> */}
+          <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 mx-auto h-full md:w-full md:-mt-4 gap-3 md:gap-2 lg:gap-3 md:pb-4 md:pr-4 md:pt-3 lg:pt-0 mt-6 mb-8 md:mb-0">
+            {PROJECTS.map(({ id, name, subtext }) => (
+              <button
+                key={id}
+                className="flex flex-col justify-center items-center bg-[#FFFBEE] p-4 md:min-h-[100px] md:max-h-[120px] min-h-[80px]"
+                style={useBorder({
+                  borderWidth: "1.2px",
+                  borderColor: "#E3801C",
+                  borderDash: "20px",
+                  borderSpacing: "31px",
+                })}
+              >
+                <span className="kode-mono-bold text-base leading-4 lg:text-lg lg:leading-4 text-[#DB874B] ">
+                  {name}
+                </span>
+                {subtext && (
+                  <p className="kode-mono-regular text-xs md:text-[9px] lg:text-xs text-[#DB874B]">
+                    {subtext}
+                  </p>
+                )}
+              </button>
+            ))}
           </div>
         </div>
       </div>

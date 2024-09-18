@@ -10,11 +10,7 @@ import {
   useState,
 } from "react";
 
-interface AppContextType {
-  isLoading: boolean;
-  setIsLoading: () => {};
-  navigateTo: (target: string) => Promise<void>;
-}
+// Loader Screen Context
 
 type LoaderContext = {
   isLoading: boolean;
@@ -37,6 +33,7 @@ export function LoaderContextProvider({
   // const hasMounted = useRef(false);
 
   const navigateTo = async (target: string) => {
+    document.body.style.overflow = "hidden";
     setIsLoading(true);
     console.log("Page loading..");
 
@@ -48,6 +45,8 @@ export function LoaderContextProvider({
     setIsLoading(false);
 
     console.log("Complete loading..");
+    await sleep(1000);
+    document.body.style.overflow = "visible";
   };
 
   function sleep(ms: number) {
@@ -63,6 +62,41 @@ export function LoaderContextProvider({
 
 export function useLoaderContext() {
   const context = useContext(LoaderContext);
+  if (!context) {
+    throw new Error(
+      "useLoaderContext must be used within a LoaderContextProvider"
+    );
+  }
+  return context;
+}
+
+// Nav Context
+
+type NavContext = {
+  isVisible: boolean;
+  setIsVisible: Dispatch<SetStateAction<boolean>>;
+};
+
+const NavContext = createContext<NavContext | null>(null);
+
+import React from "react";
+
+type NavContextProviderProps = {
+  children: ReactNode;
+};
+
+export function NavContextProvider({ children }: NavContextProviderProps) {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  return (
+    <NavContext.Provider value={{ isVisible, setIsVisible }}>
+      {children}
+    </NavContext.Provider>
+  );
+}
+
+export function useNavContext() {
+  const context = useContext(NavContext);
   if (!context) {
     throw new Error(
       "useLoaderContext must be used within a LoaderContextProvider"
