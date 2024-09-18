@@ -1,9 +1,10 @@
 "use client";
 
-import { useLoaderContext } from "@/app/_context/AppContext";
+import { useLoaderContext, useNavContext } from "@/app/_context/AppContext";
 import { AnimatePresence } from "framer-motion";
 import * as motion from "framer-motion/client";
 import { Dispatch, SetStateAction, useState } from "react";
+import { DupeMobileNav } from "./DupeMobileNav";
 
 type Props = {
   currentPage: "home" | "projects" | "techstack" | "interests";
@@ -13,47 +14,39 @@ type Props = {
 
 const NAV_LINKS = ["home", "projects", "techstack", "interests"];
 
-const NAV_COLORS = [
-  "bg-[#F5D1ED]",
-  "bg-[#E9F9C6]",
-  "bg-[#D3C2FC]",
-  "bg-[#FEDFC0]",
-];
-
 function Nav({ currentPage, isMobile, className }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  // const [isVisible, setIsVisible] = useState<boolean>(false);
+  const { isVisible, setIsVisible } = useNavContext();
 
-  return isMobile ? (
+  return (
     <>
       <MobileNavTrigger className={className} setIsVisible={setIsVisible} />
-      <AnimatePresence>
-        {isVisible && <MobileNav setIsVisible={setIsVisible} />}
-      </AnimatePresence>
+      {/* <AnimatePresence>{isVisible && <DupeMobileNav />}</AnimatePresence> */}
+
+      <nav
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={`hidden md:block w-[150px] h-[150px] z-50 ${className} group `}
+      >
+        {currentPage === "home" ? (
+          <DesktopHomeCTAButton isHovered={isHovered} />
+        ) : (
+          <DesktopHomeNavButton />
+        )}
+        {NAV_LINKS.map(
+          (link, index) =>
+            link !== "home" && (
+              <DesktopNavButton
+                key={index}
+                link={link}
+                index={index}
+                currentPage={currentPage}
+              />
+            )
+        )}
+      </nav>
     </>
-  ) : (
-    <nav
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`hidden md:block w-[150px] h-[150px] z-50 ${className} group `}
-    >
-      {currentPage === "home" ? (
-        <DesktopHomeCTAButton isHovered={isHovered} />
-      ) : (
-        <DesktopHomeNavButton />
-      )}
-      {NAV_LINKS.map(
-        (link, index) =>
-          link !== "home" && (
-            <DesktopNavButton
-              key={index}
-              link={link}
-              index={index}
-              currentPage={currentPage}
-            />
-          )
-      )}
-    </nav>
   );
 }
 
@@ -72,7 +65,9 @@ function MobileNavTrigger({ className, setIsVisible }: MobileNavTriggerProps) {
       } flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
     >
       <a
-        onClick={() => setIsVisible(true)}
+        onClick={() => {
+          setIsVisible(true);
+        }}
         className="w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center cursor-pointer select-none"
       >
         <span>NAVIGATE</span>
@@ -81,51 +76,58 @@ function MobileNavTrigger({ className, setIsVisible }: MobileNavTriggerProps) {
   );
 }
 
-function MobileNav({
-  setIsVisible,
-}: {
-  setIsVisible: (value: boolean) => void;
-}) {
-  const { navigateTo } = useLoaderContext();
+// function MobileNav({
+//   setIsVisible,
+// }: {
+//   setIsVisible: (value: boolean) => void;
+// }) {
+//   const NAV_COLORS = [
+//     "bg-[#F5D1ED]",
+//     "bg-[#E9F9C6]",
+//     "bg-[#D3C2FC]",
+//     "bg-[#FEDFC0]",
+//   ];
 
-  const menuVariants = {
-    initial: { y: "100%" },
-    animate: {
-      y: "0%",
-      transition: { duration: 0.5 },
-    },
-    exit: { y: "-100%", transition: { duration: 1 } },
-  };
+//   const { navigateTo } = useLoaderContext();
 
-  return (
-    <motion.div
-      variants={menuVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className={`md:hidden grid grid-cols-2 justify-center items-center absolute h-full w-full bg-light-purple z-[99] kode-mono-bold text-xl`}
-    >
-      {NAV_LINKS.map((link, index) => (
-        <a
-          key={index}
-          onClick={() => {
-            setIsVisible(false);
-            navigateTo(`${link === "home" ? "/" : `/${link}`}`);
-          }}
-          className={`cursor-pointer w-full h-full border-4 border-black ${NAV_COLORS[index]} flex justify-center items-center`}
-        >
-          <span>{link}</span>{" "}
-        </a>
-      ))}
-      <button
-        onClick={() => setIsVisible(false)}
-        className="absolute w-full h-[60px] flex justify-center items-center bg-[#FEFFEE] border-4 border-black mx-auto "
-      >
-        close
-      </button>
-    </motion.div>
-  );
-}
+//   const menuVariants = {
+//     initial: { y: "100%" },
+//     animate: {
+//       y: "0%",
+//       transition: { duration: 0.5 },
+//     },
+//     exit: { y: "-100%", transition: { duration: 1 } },
+//   };
+
+//   return (
+//     <motion.div
+//       variants={menuVariants}
+//       initial="initial"
+//       animate="animate"
+//       exit="exit"
+//       className={`md:hidden grid grid-cols-2 justify-center items-center absolute h-full w-full bg-light-purple z-[99] kode-mono-bold text-xl`}
+//     >
+//       {NAV_LINKS.map((link, index) => (
+//         <a
+//           key={index}
+//           onClick={() => {
+//             setIsVisible(false);
+//             navigateTo(`${link === "home" ? "/" : `/${link}`}`);
+//           }}
+//           className={`cursor-pointer w-full h-full border-4 border-black ${NAV_COLORS[index]} flex justify-center items-center`}
+//         >
+//           <span>{link}</span>{" "}
+//         </a>
+//       ))}
+//       <button
+//         onClick={() => setIsVisible(false)}
+//         className="absolute w-full h-[60px] flex justify-center items-center bg-[#FEFFEE] border-4 border-black mx-auto "
+//       >
+//         close
+//       </button>
+//     </motion.div>
+//   );
+// }
 
 type DesktopHomeCTAButtonProps = { isHovered: boolean };
 

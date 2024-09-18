@@ -1,8 +1,10 @@
 import * as motion from "framer-motion/client";
+import { DupeMobileNav } from "../_components/common/DupeMobileNav";
 import EmptyFillerDiv from "../_components/common/EmptyFillerDiv";
 import Nav from "../_components/common/Nav";
 import SocialMediaButton from "../_components/common/SocialMediaButton";
 import Wrapper from "../_components/layout/Wrapper";
+import { NavContextProvider } from "../_context/AppContext";
 
 export default function Home() {
   const SOCIAL_LINKS = [
@@ -31,7 +33,10 @@ export default function Home() {
           <Nav currentPage="home" isMobile={false} className="ml-8" />
           <MailStamp />
           <LandingTitle />
+          {/* Mobile only */}
           <Nav isMobile={true} currentPage="home"></Nav>
+          <DupeMobileNav />
+          {/* Mobile only */}
           <EmptyFillerDiv />
           <div className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-8 gap-3 md:pr-10">
             <LandingBio />

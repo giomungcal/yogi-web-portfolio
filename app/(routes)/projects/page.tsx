@@ -1,7 +1,9 @@
 "use client";
 
+import { DupeMobileNav } from "@/app/_components/common/DupeMobileNav";
 import Nav from "@/app/_components/common/Nav";
 import Wrapper from "@/app/_components/layout/Wrapper";
+import { useNavContext } from "@/app/_context/AppContext";
 import useBorder from "@/app/_hooks/useBorder";
 import { motion } from "framer-motion";
 
@@ -74,8 +76,9 @@ function Projects() {
     },
   ];
 
-  // const borderStyleVar  = useBorder();
-  // console.log(borderStyleVar);
+  const { fooFunc } = useNavContext();
+
+  fooFunc();
 
   return (
     <Wrapper borderColor={"lightgreen"}>
@@ -101,7 +104,7 @@ function Projects() {
               className="z-10 w-[50px] md:w-[60px] lg:w-[70px] absolute md:right-[-30px] md:bottom-[0px] rotate-[15deg] hover:scale-110 transition-all "
             />
           </div>
-          {/* <Nav currentPage="projects" /> */}
+          <Nav isMobile={true} currentPage="projects" />
           <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 mx-auto h-full md:w-full md:-mt-4 gap-3 md:gap-2 lg:gap-3 md:pb-4 md:pr-4 md:pt-3 lg:pt-0 mt-6 mb-8 md:mb-0">
             {PROJECTS.map(({ id, name, subtext }) => (
               <button
@@ -126,6 +129,7 @@ function Projects() {
             ))}
           </div>
         </div>
+        <DupeMobileNav />
       </div>
     </Wrapper>
   );

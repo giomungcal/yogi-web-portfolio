@@ -30,8 +30,6 @@ export function LoaderContextProvider({
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  // const hasMounted = useRef(false);
-
   const navigateTo = async (target: string) => {
     document.body.style.overflow = "hidden";
     setIsLoading(true);
@@ -75,6 +73,7 @@ export function useLoaderContext() {
 type NavContext = {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
+  fooFunc: () => void;
 };
 
 const NavContext = createContext<NavContext | null>(null);
@@ -88,8 +87,12 @@ type NavContextProviderProps = {
 export function NavContextProvider({ children }: NavContextProviderProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
+  function fooFunc() {
+    console.log("Foo Func working.");
+  }
+
   return (
-    <NavContext.Provider value={{ isVisible, setIsVisible }}>
+    <NavContext.Provider value={{ isVisible, setIsVisible, fooFunc }}>
       {children}
     </NavContext.Provider>
   );
@@ -98,9 +101,7 @@ export function NavContextProvider({ children }: NavContextProviderProps) {
 export function useNavContext() {
   const context = useContext(NavContext);
   if (!context) {
-    throw new Error(
-      "useLoaderContext must be used within a LoaderContextProvider"
-    );
+    throw new Error("useNavContext must be used within a NavContextProvider");
   }
   return context;
 }

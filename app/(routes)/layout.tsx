@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Loader from "../_components/layout/Loader";
-import { LoaderContextProvider } from "../_context/LoaderContext";
+import {
+  LoaderContextProvider,
+  NavContextProvider,
+} from "../_context/AppContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,10 +27,12 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <LoaderContextProvider>
-          <Loader />
-          {children}
-        </LoaderContextProvider>
+        <NavContextProvider>
+          <LoaderContextProvider>
+            <Loader />
+            {children}
+          </LoaderContextProvider>
+        </NavContextProvider>
       </body>
     </html>
   );
