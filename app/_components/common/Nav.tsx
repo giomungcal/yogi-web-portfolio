@@ -8,22 +8,19 @@ import { DupeMobileNav } from "./DupeMobileNav";
 
 type Props = {
   currentPage: "home" | "projects" | "techstack" | "interests";
-  isMobile: boolean;
   className?: string;
 };
 
 const NAV_LINKS = ["home", "projects", "techstack", "interests"];
 
-function Nav({ currentPage, isMobile, className }: Props) {
+function Nav({ currentPage, className }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  // const [isVisible, setIsVisible] = useState<boolean>(false);
   const { isVisible, setIsVisible } = useNavContext();
 
   return (
     <>
-      <MobileNavTrigger className={className} setIsVisible={setIsVisible} />
-      {/* <AnimatePresence>{isVisible && <DupeMobileNav />}</AnimatePresence> */}
-
+      {/* <MobileNavTrigger className={className} setIsVisible={setIsVisible} />
+      <AnimatePresence>{isVisible && <DupeMobileNav />}</AnimatePresence> */}
       <nav
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -52,17 +49,21 @@ function Nav({ currentPage, isMobile, className }: Props) {
 
 export default Nav;
 
-type MobileNavTriggerProps = {
-  className: string | undefined;
-  setIsVisible: Dispatch<SetStateAction<boolean>>;
-};
+// type MobileNavTriggerProps = {
+//   className: string | undefined;
+//   setIsVisible: Dispatch<SetStateAction<boolean>>;
+// };
 
-function MobileNavTrigger({ className, setIsVisible }: MobileNavTriggerProps) {
+// export function MobileNavTrigger({
+//   className,
+//   setIsVisible,
+// }: MobileNavTriggerProps) {
+export function MobileNavTrigger() {
+  const { setIsVisible } = useNavContext();
+
   return (
     <div
-      className={`${
-        className ? className : ""
-      } flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
+      className={`flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
     >
       <a
         onClick={() => {

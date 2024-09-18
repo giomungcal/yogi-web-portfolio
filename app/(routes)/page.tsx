@@ -1,7 +1,7 @@
 import * as motion from "framer-motion/client";
 import { DupeMobileNav } from "../_components/common/DupeMobileNav";
 import EmptyFillerDiv from "../_components/common/EmptyFillerDiv";
-import Nav from "../_components/common/Nav";
+import Nav, { MobileNavTrigger } from "../_components/common/Nav";
 import SocialMediaButton from "../_components/common/SocialMediaButton";
 import Wrapper from "../_components/layout/Wrapper";
 import { NavContextProvider } from "../_context/AppContext";
@@ -30,11 +30,11 @@ export default function Home() {
       <Wrapper borderColor={"lightpurple"}>
         <YogiBanner />
         <section className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden ">
-          <Nav currentPage="home" isMobile={false} className="ml-8" />
+          <Nav currentPage="home" className="ml-8" />
           <MailStamp />
           <LandingTitle />
           {/* Mobile only */}
-          <Nav isMobile={true} currentPage="home"></Nav>
+          <MobileNavTrigger />
           <DupeMobileNav />
           {/* Mobile only */}
           <EmptyFillerDiv />

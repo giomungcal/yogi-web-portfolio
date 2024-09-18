@@ -1,3 +1,5 @@
+"use client";
+
 import { NAV_LINKS } from "@/app/_constants/links";
 import { useLoaderContext, useNavContext } from "@/app/_context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
