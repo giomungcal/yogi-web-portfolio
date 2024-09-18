@@ -1,7 +1,6 @@
-import { AnimatePresence } from "framer-motion";
 import type { Metadata } from "next";
 import Loader from "../_components/layout/Loader";
-import { AppProvider } from "../_context/LoaderContext";
+import { LoaderContextProvider } from "../_context/LoaderContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
@@ -25,10 +24,10 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <AppProvider>
+        <LoaderContextProvider>
           <Loader />
           {children}
-        </AppProvider>
+        </LoaderContextProvider>
       </body>
     </html>
   );

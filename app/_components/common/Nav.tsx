@@ -34,16 +34,7 @@ function Nav({ currentPage, isMobile, className }: Props) {
 
   return isMobile ? (
     <>
-      <div
-        className={`${className} flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
-      >
-        <a
-          onClick={() => setIsVisible(true)}
-          className="w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center cursor-pointer select-none"
-        >
-          <span>NAVIGATE</span>
-        </a>
-      </div>
+      <MobileNavTrigger className={className} setIsVisible={setIsVisible} />
       <AnimatePresence>
         {isVisible && <MobileNav setIsVisible={setIsVisible} />}
       </AnimatePresence>
@@ -108,6 +99,21 @@ function Nav({ currentPage, isMobile, className }: Props) {
 }
 
 export default Nav;
+
+function MobileNavTrigger({ className, setIsVisible }) {
+  return (
+    <div
+      className={`${className} flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
+    >
+      <a
+        onClick={() => setIsVisible(true)}
+        className="w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center cursor-pointer select-none"
+      >
+        <span>NAVIGATE</span>
+      </a>
+    </div>
+  );
+}
 
 function MobileNav({
   setIsVisible,
