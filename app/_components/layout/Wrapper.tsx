@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {
   children: React.ReactNode;
-  borderColor: "light-purple" | "light-greenn" | "gray" | "gold" | "olive";
+  borderColor: "light-purple" | "light-green" | "gray" | "gold" | "olive";
 };
 
 function Wrapper({ children, borderColor }: Props) {
