@@ -61,7 +61,6 @@ export function LoaderContextProvider({
   );
 }
 
-// Custom hook to use the AppContext
 export function useLoaderContext() {
   const context = useContext(LoaderContext);
   if (!context) {

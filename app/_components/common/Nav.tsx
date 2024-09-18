@@ -93,11 +93,12 @@ function MobileNav({
 }: {
   setIsVisible: (value: boolean) => void;
 }) {
+  const { navigateTo } = useLoaderContext();
+
   const menuVariants = {
     initial: { y: "100%" },
     animate: {
       y: "0%",
-      //   opacity: 1,
       transition: { duration: 0.5 },
     },
     exit: { y: "-100%", transition: { duration: 0.5 } },
@@ -183,7 +184,7 @@ type DesktopNavButtonProps = {
   currentPage: string;
 };
 
-function DesktopNavButton({ link, index, currentPage }: NavButtonProps) {
+function DesktopNavButton({ link, index, currentPage }: DesktopNavButtonProps) {
   const { navigateTo } = useLoaderContext();
 
   return (
