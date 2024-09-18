@@ -66,9 +66,9 @@ function LandingTitle() {
       <h2 className="md:absolute text-blue danfo-regular md:top-[6px] md:text-[80px] text-7xl leading-normal overflow-hidden">
         HI,I'M
       </h2>
-      <h2 className="md:absolute  -mt-20 -mb-4 md:mt-0  text-[#4B7EEB] text-[140px] danfo-claw md:top-[42px] ">
+      <h1 className="md:absolute  -mt-20 -mb-4 md:mt-0  text-[#4B7EEB] text-[140px] danfo-claw md:top-[42px] ">
         GIO
-      </h2>
+      </h1>
     </div>
   );
 }

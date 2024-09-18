@@ -1,3 +1,4 @@
+import useBorder from "@/app/_hooks/useBorder";
 import React from "react";
 
 type Props = {
@@ -15,21 +16,16 @@ function Wrapper({ children, borderColor }: Props) {
     olive: "#CAD40F",
   };
 
-  const borderStyle = {
-    backgroundImage: `
-        repeating-linear-gradient(0deg, ${COLORS[borderColor]}, ${COLORS[borderColor]} 26px, transparent 26px, transparent 52px, ${COLORS[borderColor]} 52px),
-        repeating-linear-gradient(90deg, ${COLORS[borderColor]}, ${COLORS[borderColor]} 26px, transparent 26px, transparent 52px, ${COLORS[borderColor]} 52px),
-        repeating-linear-gradient(180deg, ${COLORS[borderColor]}, ${COLORS[borderColor]} 26px, transparent 26px, transparent 52px, ${COLORS[borderColor]} 52px),
-        repeating-linear-gradient(270deg, ${COLORS[borderColor]}, ${COLORS[borderColor]} 26px, transparent 26px, transparent 52px, ${COLORS[borderColor]} 52px)
-      `,
-    backgroundSize: "13px 100%, 100% 13px, 13px 100%, 100% 13px",
-    backgroundPosition: "0 0, 0 0, 100% 0, 0 100%",
-    backgroundRepeat: "no-repeat",
-  };
+  const borderStyleVar = useBorder({
+    borderWidth: "13px",
+    borderColor: COLORS[borderColor],
+    borderDash: "26px",
+    borderSpacing: "52px",
+  });
 
   return (
     <div
-      style={borderStyle}
+      style={borderStyleVar}
       className={` w-[80%] md:w-[864px] md:h-[450px] bg-[#F8F8F8] md:p-4 drop-shadow-lg overflow-hidden md:overflow-visible`}
     >
       {children}

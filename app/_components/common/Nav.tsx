@@ -115,7 +115,6 @@ function MobileNav({
       {NAV_LINKS.map((link, index) => (
         <a
           key={index}
-          // href={`${link === "home" ? "/" : `/${link}`}`}
           onClick={() => {
             setIsVisible(false);
             navigateTo(`${link === "home" ? "/" : `/${link}`}`);
