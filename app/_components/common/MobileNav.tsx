@@ -4,7 +4,7 @@ import { NAV_LINKS } from "@/app/_constants/links";
 import { useLoaderContext, useNavContext } from "@/app/_context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
 
-export function DupeMobileNav() {
+export function MobileNav() {
   const NAV_COLORS = [
     "bg-[#F5D1ED]",
     "bg-[#E9F9C6]",

@@ -4,7 +4,7 @@ import { useLoaderContext, useNavContext } from "@/app/_context/AppContext";
 import { AnimatePresence } from "framer-motion";
 import * as motion from "framer-motion/client";
 import { Dispatch, SetStateAction, useState } from "react";
-import { DupeMobileNav } from "./DupeMobileNav";
+import { MobileNav } from "./MobileNav";
 
 type Props = {
   currentPage: "home" | "projects" | "techstack" | "interests";
@@ -19,8 +19,6 @@ function Nav({ currentPage, className }: Props) {
 
   return (
     <>
-      {/* <MobileNavTrigger className={className} setIsVisible={setIsVisible} />
-      <AnimatePresence>{isVisible && <DupeMobileNav />}</AnimatePresence> */}
       <nav
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -49,33 +47,24 @@ function Nav({ currentPage, className }: Props) {
 
 export default Nav;
 
-// type MobileNavTriggerProps = {
-//   className: string | undefined;
-//   setIsVisible: Dispatch<SetStateAction<boolean>>;
-// };
+// export function MobileNavTrigger() {
+//   const { setIsVisible } = useNavContext();
 
-// export function MobileNavTrigger({
-//   className,
-//   setIsVisible,
-// }: MobileNavTriggerProps) {
-export function MobileNavTrigger() {
-  const { setIsVisible } = useNavContext();
-
-  return (
-    <div
-      className={`flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
-    >
-      <a
-        onClick={() => {
-          setIsVisible(true);
-        }}
-        className="w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center cursor-pointer select-none"
-      >
-        <span>NAVIGATE</span>
-      </a>
-    </div>
-  );
-}
+//   return (
+//     <div
+//       className={`flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
+//     >
+//       <a
+//         onClick={() => {
+//           setIsVisible(true);
+//         }}
+//         className="w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center cursor-pointer select-none"
+//       >
+//         <span>NAVIGATE</span>
+//       </a>
+//     </div>
+//   );
+// }
 
 // function MobileNav({
 //   setIsVisible,

@@ -1,7 +1,8 @@
 "use client";
 
-import { DupeMobileNav } from "@/app/_components/common/DupeMobileNav";
-import Nav, { MobileNavTrigger } from "@/app/_components/common/Nav";
+import { MobileNav } from "@/app/_components/common/MobileNav";
+import { MobileNavTrigger } from "@/app/_components/common/MobileNavTrigger";
+import Nav from "@/app/_components/common/Nav";
 import Wrapper from "@/app/_components/layout/Wrapper";
 import { useNavContext } from "@/app/_context/AppContext";
 import useBorder from "@/app/_hooks/useBorder";
@@ -129,7 +130,7 @@ function Projects() {
             ))}
           </div>
         </div>
-        <DupeMobileNav />
+        <MobileNav />
       </div>
     </Wrapper>
   );

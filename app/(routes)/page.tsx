@@ -1,10 +1,10 @@
 import * as motion from "framer-motion/client";
-import { DupeMobileNav } from "../_components/common/DupeMobileNav";
 import EmptyFillerDiv from "../_components/common/EmptyFillerDiv";
-import Nav, { MobileNavTrigger } from "../_components/common/Nav";
+import { MobileNav } from "../_components/common/MobileNav";
+import { MobileNavTrigger } from "../_components/common/MobileNavTrigger";
+import Nav from "../_components/common/Nav";
 import SocialMediaButton from "../_components/common/SocialMediaButton";
 import Wrapper from "../_components/layout/Wrapper";
-import { NavContextProvider } from "../_context/AppContext";
 
 export default function Home() {
   const SOCIAL_LINKS = [
@@ -33,10 +33,10 @@ export default function Home() {
           <Nav currentPage="home" className="ml-8" />
           <MailStamp />
           <LandingTitle />
-          {/* Mobile only */}
+          {/* Mobile only - not affected by grid*/}
           <MobileNavTrigger />
-          <DupeMobileNav />
-          {/* Mobile only */}
+          <MobileNav />
+          {/* ----------------------------------*/}
           <EmptyFillerDiv />
           <div className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-8 gap-3 md:pr-10">
             <LandingBio />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DupeMobileNav } from "../_components/common/DupeMobileNav";
+import { MobileNav } from "../_components/common/MobileNav";
 import Loader from "../_components/layout/Loader";
 import {
   LoaderContextProvider,
