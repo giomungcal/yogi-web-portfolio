@@ -101,7 +101,7 @@ function MobileNav({
       y: "0%",
       transition: { duration: 0.5 },
     },
-    exit: { y: "-100%", transition: { duration: 0.5 } },
+    exit: { y: "-100%", transition: { duration: 1 } },
   };
 
   return (
@@ -113,16 +113,17 @@ function MobileNav({
       className={`md:hidden grid grid-cols-2 justify-center items-center absolute h-full w-full bg-light-purple z-[99] kode-mono-bold text-xl`}
     >
       {NAV_LINKS.map((link, index) => (
-        <Link
+        <a
           key={index}
-          href={`${link === "home" ? "/" : `/${link}`}`}
+          // href={`${link === "home" ? "/" : `/${link}`}`}
           onClick={() => {
             setIsVisible(false);
+            navigateTo(`${link === "home" ? "/" : `/${link}`}`);
           }}
-          className={`w-full h-full border-4 border-black ${NAV_COLORS[index]} flex justify-center items-center`}
+          className={`cursor-pointer w-full h-full border-4 border-black ${NAV_COLORS[index]} flex justify-center items-center`}
         >
           <span>{link}</span>{" "}
-        </Link>
+        </a>
       ))}
       <button
         onClick={() => setIsVisible(false)}
