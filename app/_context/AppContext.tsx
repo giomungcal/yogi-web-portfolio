@@ -73,7 +73,6 @@ export function useLoaderContext() {
 type NavContext = {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
-  fooFunc: () => void;
 };
 
 const NavContext = createContext<NavContext | null>(null);
@@ -87,12 +86,8 @@ type NavContextProviderProps = {
 export function NavContextProvider({ children }: NavContextProviderProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
-  function fooFunc() {
-    console.log("Foo Func working.");
-  }
-
   return (
-    <NavContext.Provider value={{ isVisible, setIsVisible, fooFunc }}>
+    <NavContext.Provider value={{ isVisible, setIsVisible }}>
       {children}
     </NavContext.Provider>
   );

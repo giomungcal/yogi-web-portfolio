@@ -1,10 +1,8 @@
 "use client";
 
-import { useLoaderContext, useNavContext } from "@/app/_context/AppContext";
-import { AnimatePresence } from "framer-motion";
+import { useLoaderContext } from "@/app/_context/AppContext";
 import * as motion from "framer-motion/client";
-import { Dispatch, SetStateAction, useState } from "react";
-import { MobileNav } from "./MobileNav";
+import { useState } from "react";
 
 type Props = {
   currentPage: "home" | "projects" | "techstack" | "interests";
@@ -13,39 +11,34 @@ type Props = {
 
 const NAV_LINKS = ["home", "projects", "techstack", "interests"];
 
-function Nav({ currentPage, className }: Props) {
+export default function DesktopNav({ currentPage, className }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const { isVisible, setIsVisible } = useNavContext();
 
   return (
-    <>
-      <nav
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className={`hidden md:block w-[150px] h-[150px] z-50 ${className} group `}
-      >
-        {currentPage === "home" ? (
-          <DesktopHomeCTAButton isHovered={isHovered} />
-        ) : (
-          <DesktopHomeNavButton />
-        )}
-        {NAV_LINKS.map(
-          (link, index) =>
-            link !== "home" && (
-              <DesktopNavButton
-                key={index}
-                link={link}
-                index={index}
-                currentPage={currentPage}
-              />
-            )
-        )}
-      </nav>
-    </>
+    <nav
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`hidden md:block w-[150px] h-[150px] z-50 ${className} group `}
+    >
+      {currentPage === "home" ? (
+        <DesktopHomeCTAButton isHovered={isHovered} />
+      ) : (
+        <DesktopHomeNavButton />
+      )}
+      {NAV_LINKS.map(
+        (link, index) =>
+          link !== "home" && (
+            <DesktopNavButton
+              key={index}
+              link={link}
+              index={index}
+              currentPage={currentPage}
+            />
+          )
+      )}
+    </nav>
   );
 }
-
-export default Nav;
 
 // export function MobileNavTrigger() {
 //   const { setIsVisible } = useNavContext();

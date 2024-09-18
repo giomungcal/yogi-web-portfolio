@@ -1,8 +1,8 @@
 import * as motion from "framer-motion/client";
+import DesktopNav from "../_components/common/DesktopNav";
 import EmptyFillerDiv from "../_components/common/EmptyFillerDiv";
 import { MobileNav } from "../_components/common/MobileNav";
 import { MobileNavTrigger } from "../_components/common/MobileNavTrigger";
-import Nav from "../_components/common/Nav";
 import SocialMediaButton from "../_components/common/SocialMediaButton";
 import Wrapper from "../_components/layout/Wrapper";
 
@@ -30,7 +30,7 @@ export default function Home() {
       <Wrapper borderColor={"lightpurple"}>
         <YogiBanner />
         <section className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden ">
-          <Nav currentPage="home" className="ml-8" />
+          <DesktopNav currentPage="home" className="ml-8" />
           <MailStamp />
           <LandingTitle />
           {/* Mobile only - not affected by grid*/}

@@ -1,10 +1,9 @@
 "use client";
 
+import DesktopNav from "@/app/_components/common/DesktopNav";
 import { MobileNav } from "@/app/_components/common/MobileNav";
 import { MobileNavTrigger } from "@/app/_components/common/MobileNavTrigger";
-import Nav from "@/app/_components/common/Nav";
 import Wrapper from "@/app/_components/layout/Wrapper";
-import { useNavContext } from "@/app/_context/AppContext";
 import useBorder from "@/app/_hooks/useBorder";
 import { motion } from "framer-motion";
 
@@ -77,15 +76,11 @@ function Projects() {
     },
   ];
 
-  const { fooFunc } = useNavContext();
-
-  fooFunc();
-
   return (
     <Wrapper borderColor={"lightgreen"}>
       <div className="flex w-full h-full md:justify-around md:p-2">
         <div className="md:mr-6">
-          <Nav currentPage="projects" />
+          <DesktopNav currentPage="projects" />
           <motion.img
             src="/assets/images/jolyne-banner.png"
             alt="Jolyne Banner"
