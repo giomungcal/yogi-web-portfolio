@@ -34,7 +34,7 @@ export default function RootLayout({
           <LoaderContextProvider>
             <InitialLoader />
             <FakeLoader />
-            <MobileNav />
+
             {children}
             <Toaster
               position="top-right"
@@ -48,6 +48,7 @@ export default function RootLayout({
                 },
               }}
             />
+            <MobileNav />
           </LoaderContextProvider>
         </NavContextProvider>
       </body>

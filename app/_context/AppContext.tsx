@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   createContext,
   Dispatch,
@@ -8,9 +8,9 @@ import {
   SetStateAction,
   useContext,
   useEffect,
-  useRef,
   useState,
 } from "react";
+import toast from "react-hot-toast";
 
 // Loader Screen Context
 
@@ -20,6 +20,7 @@ type LoaderContext = {
   isFakeLoading: boolean;
   setIsFakeLoading: Dispatch<SetStateAction<boolean>>;
   navigateTo: (target: string) => void;
+  pathname: string;
 };
 
 const LoaderContext = createContext<LoaderContext | null>(null);
@@ -32,7 +33,7 @@ export function LoaderContextProvider({
   children,
 }: LoaderContextProviderProps) {
   const router = useRouter();
-
+  const pathname = usePathname();
   // Initial Mount Loading Screen
 
   const [isLoading, setIsLoading] = useState(true);
@@ -53,7 +54,7 @@ export function LoaderContextProvider({
 
   const navigateTo = async (target: string) => {
     toast.dismiss();
-    // document.body.classList.add("loading");
+    document.body.classList.add("loading");
 
     setIsFakeLoading(true);
     console.log("Page loading..");
@@ -68,7 +69,7 @@ export function LoaderContextProvider({
     console.log("Loading complete..");
     await sleep(1000);
 
-    // document.body.classList.remove("loading");
+    document.body.classList.remove("loading");
   };
 
   function sleep(ms: number) {
@@ -77,7 +78,13 @@ export function LoaderContextProvider({
 
   return (
     <LoaderContext.Provider
-      value={{ isFakeLoading, setIsFakeLoading, navigateTo, isLoading }}
+      value={{
+        isFakeLoading,
+        setIsFakeLoading,
+        navigateTo,
+        isLoading,
+        pathname,
+      }}
     >
       {children}
     </LoaderContext.Provider>
@@ -102,9 +109,6 @@ type NavContext = {
 };
 
 const NavContext = createContext<NavContext | null>(null);
-
-import React from "react";
-import toast from "react-hot-toast";
 
 type NavContextProviderProps = {
   children: ReactNode;

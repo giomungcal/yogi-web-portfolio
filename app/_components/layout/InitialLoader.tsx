@@ -45,7 +45,7 @@ const InitialLoader = ({}): React.ReactNode => {
           }}
           exit={{ y: "-100%" }}
           transition={{ duration: 1, ease: [0.455, 0.03, 0.515, 0.955] }}
-          className="absolute inset-0 z-[50] overflow-hidden"
+          className="fixed top-0 inset-0 h-screen z-[50] overflow-hidden"
         >
           <div
             style={useBorder({

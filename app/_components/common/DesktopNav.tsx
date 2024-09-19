@@ -111,7 +111,7 @@ function DesktopNavButton({
         e.preventDefault();
         !isTheButtonTheCurrentPage
           ? navigateTo(link)
-          : toast(`this is the ${currentPage} page!`, { icon: "🦋" });
+          : toast(`this is the ${name} page!`, { icon: "🦋" });
       }}
       className={`cursor-pointer absolute hover:scale-110 transition-all ${
         NAV_TRANSITIONS[index - 1]

@@ -30,6 +30,12 @@ function Wrapper({ children, borderColor }: Props) {
     >
       {children}
     </div>
+    // <div
+    //   style={borderStyleVar}
+    //   className={`w-[80%] min-h-[450px] bg-[#F8F8F8] md:p-4 drop-shadow-lg overflow-hidden md:overflow-visible my-16 sm:my-0`}
+    // >
+    //   {children}
+    // </div>
   );
 }
 

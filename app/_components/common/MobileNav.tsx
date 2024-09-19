@@ -5,7 +5,7 @@ import { useLoaderContext, useNavContext } from "@/app/_context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
 
 export function MobileNav() {
-  const { navigateTo } = useLoaderContext();
+  const { navigateTo, pathname } = useLoaderContext();
   const { isVisible, setIsVisible } = useNavContext();
 
   const menuVariants = {
@@ -49,12 +49,12 @@ export function MobileNav() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <motion.nav
           variants={menuVariants}
           initial="initial"
           animate="animate"
           exit="exit"
-          className={`md:hidden fixed flex flex-col justify-end items-start h-screen w-full bg-[#E9F9C6] z-[50] danfo-regular text-xl p-8`}
+          className={`md:hidden fixed top-0 left-0 flex flex-col justify-end items-start h-screen w-full bg-[#E9F9C6] z-[50] danfo-regular text-xl p-8`}
         >
           <motion.div
             variants={container}
@@ -70,9 +70,11 @@ export function MobileNav() {
                   variants={item}
                   onClick={() => {
                     setIsVisible(false);
-                    navigateTo(href);
+                    pathname !== href && navigateTo(href);
                   }}
-                  className={`cursor-pointer flex justify-center items-center text-[#385326] text-5xl xs:text-7xl`}
+                  className={`cursor-pointer flex justify-center items-center ${
+                    pathname === href ? "text-[#263e17]" : "text-[#456033]"
+                  } text-5xl xs:text-7xl`}
                 >
                   <span>{name}</span>{" "}
                 </motion.a>
@@ -80,7 +82,10 @@ export function MobileNav() {
             ))}
           </motion.div>
           <button
-            onClick={() => setIsVisible(false)}
+            onClick={() => {
+              setIsVisible(false);
+              document.body.classList.remove("loading");
+            }}
             className="overflow-hidden absolute flex top-8 right-8 justify-center items-center "
           >
             <motion.a
@@ -101,7 +106,7 @@ export function MobileNav() {
               close
             </motion.a>
           </button>
-        </motion.div>
+        </motion.nav>
       )}
     </AnimatePresence>
   );
