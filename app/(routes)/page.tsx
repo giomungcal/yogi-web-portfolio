@@ -35,7 +35,6 @@ export default function Home() {
           <LandingTitle />
           {/* Mobile only - not affected by grid*/}
           <MobileNavTrigger />
-          <MobileNav />
           {/* ----------------------------------*/}
           <EmptyFillerDiv />
           <div className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-8 gap-3 md:pr-10">

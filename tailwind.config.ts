@@ -13,13 +13,13 @@ const config: Config = {
       purple: "804973",
       green: "#94BD33",
 
-      // Border Colors
-      "light-blue": "#B2BFFF",
-      "light-purple": "#C286B9",
-      "light-green": "#AEDCA0",
-      gray: "#C1CDCF",
-      gold: "#F5C95E",
-      olive: "#CAD40F",
+      // // Border Colors
+      // "light-blue": "#B2BFFF",
+      // "light-purple": "#C286B9",
+      // "light-green": "#AEDCA0",
+      // gray: "#C1CDCF",
+      // gold: "#F5C95E",
+      // olive: "#CAD40F",
     },
     extend: {
       colors: {
@@ -29,6 +29,9 @@ const config: Config = {
       fontSize: {
         "custom-hi": "4.875rem",
         "custom-gio": "8.75rem",
+      },
+      screens: {
+        xs: "475px", // Add a custom breakpoint for 'xs'
       },
     },
   },

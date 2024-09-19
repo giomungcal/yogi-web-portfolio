@@ -91,7 +91,7 @@ function Projects() {
         </div>
         <div className="flex flex-col justify-center md:items-start">
           <div className="relative flex justify-center  mt-8 sm:mt-4 md:mt-0">
-            <h1 className="text-[#94BD33] lg:text-[123px] text-[45px] sm:text-[96px] danfo-comb lg:mt-[-15px] lg:mb-[-5px]">
+            <h1 className="text-[#94BD33] lg:text-[123px] text-[45px] xs:text-[70px] sm:text-[96px] danfo-comb lg:mt-[-15px] md:mb-[-20px] lg:mb-[-5px]">
               PROJECTS
             </h1>
             <img
@@ -101,10 +101,11 @@ function Projects() {
             />
           </div>
           <MobileNavTrigger />
-          <div
+          <div className="md:h-full md:w-full grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-3 md:gap-2 lg:gap-3 md:pb-4 md:pr-4 md:pt-3 lg:pt-0 mx-auto my-8 md:my-0">
+            {/* <div
             className="md:h-full md:w-full grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-3 md:gap-2 lg:gap-3 md:pb-4 md:pr-4 md:pt-3 lg:pt-0 
           mx-auto ml-8 mr-8 md:mr-0 md:ml-0 mt-6 mb-8 md:-mt-4 md:mb-0"
-          >
+          > */}
             {PROJECTS.map(({ id, name, subtext }) => (
               <button
                 key={id}
@@ -128,7 +129,6 @@ function Projects() {
             ))}
           </div>
         </div>
-        <MobileNav />
       </div>
     </Wrapper>
   );

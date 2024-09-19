@@ -10,7 +10,7 @@ const FakeLoader = ({}): React.ReactNode => {
   return (
     <AnimatePresence mode="wait">
       {isFakeLoading && (
-        <motion.div className="absolute inset-0 z-[50]">
+        <motion.div className="absolute inset-0 z-[60]">
           <motion.div
             initial={{ y: "-100%" }}
             animate={{ y: isFakeLoading ? "0%" : "-100%" }}
