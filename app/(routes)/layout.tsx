@@ -32,7 +32,7 @@ export default function RootLayout({
       <body>
         <NavContextProvider>
           <LoaderContextProvider>
-            <InitialLoader />
+            {/* <InitialLoader /> */}
             <FakeLoader />
             <MobileNav />
             {children}
