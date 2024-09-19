@@ -86,9 +86,11 @@ export function MobileNav() {
               </div>
             ))}
           </motion.div>
-          <div className="overflow-hidden absolute flex top-8 right-8 justify-center items-center ">
+          <button
+            onClick={() => setIsVisible(false)}
+            className="overflow-hidden absolute flex top-8 right-8 justify-center items-center "
+          >
             <motion.a
-              onClick={() => setIsVisible(false)}
               initial={{
                 x: 150,
               }}
@@ -105,7 +107,7 @@ export function MobileNav() {
             >
               close
             </motion.a>
-          </div>
+          </button>
         </motion.div>
       )}
     </AnimatePresence>
