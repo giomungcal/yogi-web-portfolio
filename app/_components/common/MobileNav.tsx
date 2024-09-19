@@ -14,7 +14,7 @@ export function MobileNav() {
       x: "0%",
       transition: { duration: 0.5 },
     },
-    exit: { x: "100%", transition: { duration: 1 } },
+    exit: { x: "100%", transition: { duration: 0.7 } },
   };
 
   const container = {
@@ -41,7 +41,7 @@ export function MobileNav() {
       y: [0, -10, 70],
       transition: {
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.5,
       },
     },
   };
