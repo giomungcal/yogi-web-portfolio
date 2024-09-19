@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 import { MobileNav } from "../_components/common/MobileNav";
 import FakeLoader from "../_components/layout/FakeLoader";
 import InitialLoader from "../_components/layout/InitialLoader";
@@ -35,6 +36,18 @@ export default function RootLayout({
             <FakeLoader />
             <MobileNav />
             {children}
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                className: "kode-mono-regular bg-[#E5D3FB] ",
+                style: {
+                  border: "2px solid #713200",
+                  padding: "16px",
+                  color: "black",
+                  backgroundColor: "#E5D3FB",
+                },
+              }}
+            />
           </LoaderContextProvider>
         </NavContextProvider>
       </body>

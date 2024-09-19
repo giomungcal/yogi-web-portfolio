@@ -5,13 +5,6 @@ import { useLoaderContext, useNavContext } from "@/app/_context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
 
 export function MobileNav() {
-  // const NAV_COLORS = [
-  //   "bg-[#F5D1ED]",
-  //   "bg-[#E9F9C6]",
-  //   "bg-[#D3C2FC]",
-  //   "bg-[#FEDFC0]",
-  // ];
-
   const { navigateTo } = useLoaderContext();
   const { isVisible, setIsVisible } = useNavContext();
 
@@ -70,18 +63,18 @@ export function MobileNav() {
             exit="exit"
             className="flex flex-col items-start"
           >
-            {NAV_LINKS.map((link, index) => (
+            {NAV_LINKS.map(({ name, href }, index) => (
               <div className="overflow-hidden">
                 <motion.a
                   key={index}
                   variants={item}
                   onClick={() => {
                     setIsVisible(false);
-                    navigateTo(`${link === "home" ? "/" : `/${link}`}`);
+                    navigateTo(href);
                   }}
                   className={`cursor-pointer flex justify-center items-center text-[#385326] text-5xl xs:text-7xl`}
                 >
-                  <span>{link}</span>{" "}
+                  <span>{name}</span>{" "}
                 </motion.a>
               </div>
             ))}

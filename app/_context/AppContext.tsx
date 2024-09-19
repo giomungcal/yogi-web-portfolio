@@ -52,7 +52,8 @@ export function LoaderContextProvider({
   const [isFakeLoading, setIsFakeLoading] = useState(false);
 
   const navigateTo = async (target: string) => {
-    document.body.classList.add("loading");
+    toast.dismiss();
+    // document.body.classList.add("loading");
 
     setIsFakeLoading(true);
     console.log("Page loading..");
@@ -67,7 +68,7 @@ export function LoaderContextProvider({
     console.log("Loading complete..");
     await sleep(1000);
 
-    document.body.classList.remove("loading");
+    // document.body.classList.remove("loading");
   };
 
   function sleep(ms: number) {
@@ -103,6 +104,7 @@ type NavContext = {
 const NavContext = createContext<NavContext | null>(null);
 
 import React from "react";
+import toast from "react-hot-toast";
 
 type NavContextProviderProps = {
   children: ReactNode;

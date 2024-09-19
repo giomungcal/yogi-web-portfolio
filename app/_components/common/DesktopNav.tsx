@@ -1,18 +1,22 @@
 "use client";
 
+import { NAV_LINKS } from "@/app/_constants/links";
 import { useLoaderContext } from "@/app/_context/AppContext";
 import * as motion from "framer-motion/client";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 type Props = {
   currentPage: "home" | "projects" | "techstack" | "interests";
   className?: string;
 };
 
-const NAV_LINKS = ["home", "projects", "techstack", "interests"];
-
 export default function DesktopNav({ currentPage, className }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  // The current page will be on top of the Nav stack
+  // const NAV_LINKS_FILTERED = NAV_LINKS.filter((l) => l !== currentPage);
+  // NAV_LINKS_FILTERED.splice(1, 0, currentPage);
 
   return (
     <nav
@@ -26,11 +30,12 @@ export default function DesktopNav({ currentPage, className }: Props) {
         <DesktopHomeNavButton />
       )}
       {NAV_LINKS.map(
-        (link, index) =>
-          link !== "home" && (
+        ({ name, href }, index) =>
+          name !== "home" && (
             <DesktopNavButton
               key={index}
-              link={link}
+              link={href}
+              name={name}
               index={index}
               currentPage={currentPage}
             />
@@ -115,13 +120,11 @@ export default function DesktopNav({ currentPage, className }: Props) {
 type DesktopHomeCTAButtonProps = { isHovered: boolean };
 
 function DesktopHomeCTAButton({ isHovered }: DesktopHomeCTAButtonProps) {
-  const { navigateTo } = useLoaderContext();
-
   return (
     <a
       onClick={(e) => {
         e.preventDefault();
-        navigateTo("/");
+        // navigateTo("/");
       }}
       className="cursor-pointer absolute group-hover:rotate-[15deg] transition-all z-50"
     >
@@ -158,11 +161,17 @@ function DesktopHomeNavButton() {
 
 type DesktopNavButtonProps = {
   link: string;
+  name: string;
   index: number;
   currentPage: string;
 };
 
-function DesktopNavButton({ link, index, currentPage }: DesktopNavButtonProps) {
+function DesktopNavButton({
+  link,
+  name,
+  index,
+  currentPage,
+}: DesktopNavButtonProps) {
   const { navigateTo } = useLoaderContext();
 
   const NAV_TRANSITIONS = [
@@ -171,17 +180,21 @@ function DesktopNavButton({ link, index, currentPage }: DesktopNavButtonProps) {
     "group-hover:translate-x-[394px] z-[8]",
   ];
 
+  const isTheButtonTheCurrentPage = name === currentPage;
+
   return (
     <a
       onClick={(e) => {
         e.preventDefault();
-        navigateTo(`/${link}`);
+        !isTheButtonTheCurrentPage
+          ? navigateTo(link)
+          : toast(`this is the ${currentPage} page! 👽`);
       }}
       className={`cursor-pointer absolute hover:scale-110 transition-all ${
         NAV_TRANSITIONS[index - 1]
-      } ${link === currentPage && "z-50"}`}
+      } ${name === currentPage && "z-50"}`}
     >
-      <img src={`/assets/images/${link}-stamp.png`} alt={link} />
+      <img src={`/assets/images/${name}-stamp.png`} alt={name} />
     </a>
   );
 }
