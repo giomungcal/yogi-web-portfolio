@@ -39,9 +39,9 @@ export default function RootLayout({
             <Toaster
               position="top-right"
               toastOptions={{
-                className: "kode-mono-regular bg-[#E5D3FB] ",
+                className: "kode-mono-regular bg-[#E5D3FB]",
                 style: {
-                  border: "2px solid #713200",
+                  border: "2px solid black",
                   padding: "16px",
                   color: "black",
                   backgroundColor: "#E5D3FB",

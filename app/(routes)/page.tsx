@@ -1,54 +1,29 @@
 import * as motion from "framer-motion/client";
 import DesktopNav from "../_components/common/DesktopNav";
 import EmptyFillerDiv from "../_components/common/EmptyFillerDiv";
-import { MobileNav } from "../_components/common/MobileNav";
+import Footer from "../_components/common/Footer";
 import { MobileNavTrigger } from "../_components/common/MobileNavTrigger";
-import SocialMediaButton from "../_components/common/SocialMediaButton";
 import Wrapper from "../_components/layout/Wrapper";
 
 export default function Home() {
-  const SOCIAL_LINKS = [
-    {
-      name: "github",
-      link: process.env.GITHUB_URL as string,
-      img: "/assets/images/github-square.svg",
-    },
-    {
-      name: "linkedin",
-      link: process.env.LINKEDIN_URL as string,
-      img: "/assets/images/linked-in.svg",
-    },
-    {
-      name: "behance",
-      link: process.env.BEHANCE_URL as string,
-      img: "/assets/images/behance.svg",
-    },
-  ];
-
   return (
     <>
       <Wrapper borderColor={"lightpurple"}>
         <YogiBanner />
-        <section className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden ">
+        <main className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden py-8 md:py-0">
           <DesktopNav currentPage="home" className="ml-8" />
           <MailStamp />
           <LandingTitle />
-          {/* Mobile only - not affected by grid*/}
           <MobileNavTrigger />
-          {/* ----------------------------------*/}
           <EmptyFillerDiv />
-          <div className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-8 gap-3 md:pr-10">
+          <section className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-8 gap-3 md:pr-10">
             <LandingBio />
-            <div className="grid grid-cols-3 items-center gap-4">
-              {SOCIAL_LINKS.map((l, index) => {
-                return <SocialMediaButton key={index} {...l} />;
-              })}
-            </div>
-          </div>
+            <Footer />
+          </section>
           <JohnnyBanner />
           <GioBanner />
-        </section>
-        <MobileNotice />
+          <MobileNotice />
+        </main>
       </Wrapper>
     </>
   );
@@ -81,7 +56,7 @@ function YogiBanner() {
   return (
     <div className="hidden md:flex z-10 w-[290px] h-[34px] items-center justify-center bg-[#B2BFFF] absolute -right-24 top-4 rotate-[42deg] border-black border-[2px] overflow-hidden">
       <p className="text-[#FFF6F2] roboto-flex text-2xl flex flex-shrink-0">
-        {"YOGI ✰ YOGI ✰ YOGI ✰"}
+        YOGI ✰ YOGI ✰ YOGI ✰
       </p>
     </div>
   );
@@ -103,7 +78,7 @@ function MailStamp() {
 
 function LandingBio() {
   return (
-    <p className="kode-mono-regular text-center md:text-right text-[13px] md:text-xs lg:text-[13px] md:w-[230px] lg:w-[310px] px-12 md:px-0 lg:leading-5">
+    <p className="kode-mono-regular text-center md:text-right text-[13px] md:text-[11.5px] lg:text-[13px] md:max-w-[250px] lg:max-w-[360px] px-12 md:px-0 lg:leading-5">
       a front-end developer shifting from a career in information security after
       realizing where my passion really lies. i’ve decided to dive back into web
       development, to pursue what my heart truly wants ♡
@@ -137,7 +112,7 @@ function GioBanner() {
 
 function MobileNotice() {
   return (
-    <p className="block md:hidden text-center text-[12px] mb-8 italic opacity-50 px-8">
+    <p className="block md:hidden text-center text-[12px] italic opacity-50 px-8">
       note: use desktop for a better experience
     </p>
   );

@@ -14,10 +14,6 @@ type Props = {
 export default function DesktopNav({ currentPage, className }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  // The current page will be on top of the Nav stack
-  // const NAV_LINKS_FILTERED = NAV_LINKS.filter((l) => l !== currentPage);
-  // NAV_LINKS_FILTERED.splice(1, 0, currentPage);
-
   return (
     <nav
       onMouseEnter={() => setIsHovered(true)}
@@ -45,78 +41,6 @@ export default function DesktopNav({ currentPage, className }: Props) {
   );
 }
 
-// export function MobileNavTrigger() {
-//   const { setIsVisible } = useNavContext();
-
-//   return (
-//     <div
-//       className={`flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
-//     >
-//       <a
-//         onClick={() => {
-//           setIsVisible(true);
-//         }}
-//         className="w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center cursor-pointer select-none"
-//       >
-//         <span>NAVIGATE</span>
-//       </a>
-//     </div>
-//   );
-// }
-
-// function MobileNav({
-//   setIsVisible,
-// }: {
-//   setIsVisible: (value: boolean) => void;
-// }) {
-//   const NAV_COLORS = [
-//     "bg-[#F5D1ED]",
-//     "bg-[#E9F9C6]",
-//     "bg-[#D3C2FC]",
-//     "bg-[#FEDFC0]",
-//   ];
-
-//   const { navigateTo } = useLoaderContext();
-
-//   const menuVariants = {
-//     initial: { y: "100%" },
-//     animate: {
-//       y: "0%",
-//       transition: { duration: 0.5 },
-//     },
-//     exit: { y: "-100%", transition: { duration: 1 } },
-//   };
-
-//   return (
-//     <motion.div
-//       variants={menuVariants}
-//       initial="initial"
-//       animate="animate"
-//       exit="exit"
-//       className={`md:hidden grid grid-cols-2 justify-center items-center absolute h-full w-full bg-light-purple z-[99] kode-mono-bold text-xl`}
-//     >
-//       {NAV_LINKS.map((link, index) => (
-//         <a
-//           key={index}
-//           onClick={() => {
-//             setIsVisible(false);
-//             navigateTo(`${link === "home" ? "/" : `/${link}`}`);
-//           }}
-//           className={`cursor-pointer w-full h-full border-4 border-black ${NAV_COLORS[index]} flex justify-center items-center`}
-//         >
-//           <span>{link}</span>{" "}
-//         </a>
-//       ))}
-//       <button
-//         onClick={() => setIsVisible(false)}
-//         className="absolute w-full h-[60px] flex justify-center items-center bg-[#FEFFEE] border-4 border-black mx-auto "
-//       >
-//         close
-//       </button>
-//     </motion.div>
-//   );
-// }
-
 type DesktopHomeCTAButtonProps = { isHovered: boolean };
 
 function DesktopHomeCTAButton({ isHovered }: DesktopHomeCTAButtonProps) {
@@ -124,7 +48,6 @@ function DesktopHomeCTAButton({ isHovered }: DesktopHomeCTAButtonProps) {
     <a
       onClick={(e) => {
         e.preventDefault();
-        // navigateTo("/");
       }}
       className="cursor-pointer absolute group-hover:rotate-[15deg] transition-all z-50"
     >
@@ -188,7 +111,7 @@ function DesktopNavButton({
         e.preventDefault();
         !isTheButtonTheCurrentPage
           ? navigateTo(link)
-          : toast(`this is the ${currentPage} page! 👽`);
+          : toast(`this is the ${currentPage} page!`, { icon: "🦋" });
       }}
       className={`cursor-pointer absolute hover:scale-110 transition-all ${
         NAV_TRANSITIONS[index - 1]
