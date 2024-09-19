@@ -44,7 +44,7 @@ export function LoaderContextProvider({
 
     console.log("Complete loading..");
     await sleep(1000);
-    document.body.style.overflow = "visible";
+    document.body.style.overflow = "";
   };
 
   function sleep(ms: number) {

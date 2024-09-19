@@ -74,13 +74,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 @media (max-width: 640px) {
   body {
     height: auto; /* Adjust or set height as needed for small screens */
     min-height: 100vh; /* Ensures body takes at least full viewport height */
+    overflow: visible;
   }
 }
 
