@@ -10,13 +10,13 @@ export default function Home() {
     <>
       <Wrapper borderColor={"lightpurple"}>
         <YogiBanner />
-        <main className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden py-8 md:py-0">
+        <main className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden py-8 md:py-0 md:pr-10">
           <DesktopNav currentPage="home" className="ml-8" />
           <MailStamp />
           <LandingTitle />
           <MobileNavTrigger />
           <EmptyFillerDiv />
-          <section className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-8 gap-3 md:pr-10">
+          <section className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-10 gap-3">
             <LandingBio />
             <Footer />
           </section>
@@ -31,16 +31,16 @@ export default function Home() {
 
 function LandingTitle() {
   return (
-    <div className="relative flex flex-col justify-center items-center md:items-end md:justify-end pt-4 md:pt-0 md:mt-4 md:pl-2 md:pr-10">
+    <div className="relative flex flex-col justify-center items-center md:items-end md:justify-end pt-4 md:pt-0 md:mt-4 md:pl-2">
       <img
         src="/assets/images/stamp1.png"
         alt="Jojo Stamp"
-        className="z-10 w-[50px] md:w-[79px] absolute md:right-[10px] top-[55px] md:top-[30px] rotate-12 hover:scale-110 transition-all ml-52 md:ml-0"
+        className="z-10 w-[50px] md:w-[79px] absolute md:mr-[-25px] top-[55px] md:top-[30px] rotate-12 hover:scale-110 transition-all ml-52 md:ml-0"
       />
       <img
         src="/assets/images/stamp2.png"
         alt="Jojo Stamp"
-        className="z-10 w-[50px] md:w-[70px] absolute md:left-[-21px] md:bottom-[-53px] -rotate-12 hover:scale-110 transition-all mr-56 md:ml-0 mt-36 md:mt-0"
+        className="z-10 w-[50px] md:w-[70px] absolute md:bottom-[-53px] -rotate-12 hover:scale-110 transition-all mr-56 md:mr-48 mt-36 md:mt-0"
       />
       <h2 className="md:absolute text-blue danfo-regular md:top-[6px] md:text-[80px] text-7xl leading-normal overflow-hidden">
         HI,I'M
@@ -70,7 +70,7 @@ function MailStamp() {
         alt="Mail Stamp"
         width={180}
         height={97}
-        className="right-0 bottom-0 translate-x-8 translate-y-8 scale-110"
+        className="right-0 bottom-0 translate-x-6 lg:translate-x-14 translate-y-8 scale-100 lg:scale-110"
       />
     </div>
   );
@@ -103,7 +103,7 @@ function GioBanner() {
     <motion.img
       src="/assets/images/gio-banner.png"
       alt="Gio banner"
-      className="hidden md:block absolute bottom-0 lg:w-[368px] md:w-[330px] top-[128px] left-[110px]"
+      className="hidden md:block absolute bottom-0 lg:w-[368px] md:w-[330px] lg:top-[118px] top-[138px] left-[100px] "
       whileHover={{ scale: [null, 1.08] }}
       transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
     />

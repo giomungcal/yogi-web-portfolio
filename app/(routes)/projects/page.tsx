@@ -35,7 +35,7 @@ function Projects() {
             {PROJECTS.map(({ id, name, subtext }) => (
               <a
                 key={id}
-                className="flex flex-col justify-center items-center bg-[#FFFBEE] p-4 md:min-h-[100px] md:max-h-[120px] min-h-[70px]"
+                className="flex flex-col justify-center items-center md:items-start cursor-pointer bg-[#FFFBEE] p-4 md:min-h-[100px] md:max-h-[120px] min-h-[70px]"
                 style={useBorder({
                   borderWidth: "1.2px",
                   borderColor: "#E3801C",
