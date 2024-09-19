@@ -7,12 +7,12 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 type Props = {
-  currentPage: "home" | "projects" | "techstack" | "interests";
   className?: string;
 };
 
-export default function DesktopNav({ currentPage, className }: Props) {
+export default function DesktopNav({ className }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const { pathname } = useLoaderContext();
 
   return (
     <nav
@@ -20,7 +20,7 @@ export default function DesktopNav({ currentPage, className }: Props) {
       onMouseLeave={() => setIsHovered(false)}
       className={`hidden md:block w-[150px] h-[150px] z-50 ${className} group `}
     >
-      {currentPage === "home" ? (
+      {pathname === "/" ? (
         <DesktopHomeCTAButton isHovered={isHovered} />
       ) : (
         <DesktopHomeNavButton />
@@ -30,10 +30,9 @@ export default function DesktopNav({ currentPage, className }: Props) {
           name !== "home" && (
             <DesktopNavButton
               key={index}
-              link={href}
+              href={href}
               name={name}
               index={index}
-              currentPage={currentPage}
             />
           )
       )}
@@ -83,19 +82,13 @@ function DesktopHomeNavButton() {
 }
 
 type DesktopNavButtonProps = {
-  link: string;
+  href: string;
   name: string;
   index: number;
-  currentPage: string;
 };
 
-function DesktopNavButton({
-  link,
-  name,
-  index,
-  currentPage,
-}: DesktopNavButtonProps) {
-  const { navigateTo } = useLoaderContext();
+function DesktopNavButton({ href, name, index }: DesktopNavButtonProps) {
+  const { navigateTo, pathname } = useLoaderContext();
 
   const NAV_TRANSITIONS = [
     "group-hover:translate-x-[135px] z-[10]",
@@ -103,19 +96,19 @@ function DesktopNavButton({
     "group-hover:translate-x-[394px] z-[8]",
   ];
 
-  const isTheButtonTheCurrentPage = name === currentPage;
+  const isTheButtonTheCurrentPage = href === pathname;
 
   return (
     <a
       onClick={(e) => {
         e.preventDefault();
         !isTheButtonTheCurrentPage
-          ? navigateTo(link)
+          ? navigateTo(href)
           : toast(`this is the ${name} page!`, { icon: "🦋" });
       }}
       className={`cursor-pointer absolute hover:scale-110 transition-all ${
         NAV_TRANSITIONS[index - 1]
-      } ${name === currentPage && "z-50"}`}
+      } ${href === pathname && "z-50"}`}
     >
       <img src={`/assets/images/${name}-stamp.png`} alt={name} />
     </a>

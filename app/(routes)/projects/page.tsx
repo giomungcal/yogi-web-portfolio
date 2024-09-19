@@ -10,7 +10,7 @@ function Projects() {
     <Wrapper borderColor={"lightgreen"}>
       <main className="flex w-full h-full justify-center md:justify-around md:p-2">
         <header className="md:mr-6">
-          <DesktopNav currentPage="projects" />
+          <DesktopNav />
           <motion.img
             src="/assets/images/jolyne-banner.png"
             alt="Jolyne Banner"

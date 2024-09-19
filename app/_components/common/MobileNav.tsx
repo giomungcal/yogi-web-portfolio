@@ -41,7 +41,7 @@ export function MobileNav() {
       y: [0, -10, 70],
       transition: {
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.6,
       },
     },
   };
@@ -64,9 +64,8 @@ export function MobileNav() {
             className="flex flex-col items-start"
           >
             {NAV_LINKS.map(({ name, href }, index) => (
-              <div className="overflow-hidden">
+              <div key={index} className="overflow-hidden">
                 <motion.a
-                  key={index}
                   variants={item}
                   onClick={() => {
                     setIsVisible(false);
@@ -76,7 +75,23 @@ export function MobileNav() {
                     pathname === href ? "text-[#263e17]" : "text-[#456033]"
                   } text-5xl xs:text-7xl`}
                 >
-                  <span>{name}</span>{" "}
+                  <span>{name}</span>
+                  {pathname === href && (
+                    <motion.img
+                      animate={{
+                        rotate: [-45, 60, -45],
+                      }}
+                      transition={{
+                        duration: 2,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        repeatType: "loop",
+                      }}
+                      className="w-10 ml-4"
+                      src="/assets/images/smiley.png"
+                      alt="Smiley - Active Page"
+                    />
+                  )}
                 </motion.a>
               </div>
             ))}
@@ -84,7 +99,6 @@ export function MobileNav() {
           <button
             onClick={() => {
               setIsVisible(false);
-              document.body.classList.remove("loading");
             }}
             className="overflow-hidden absolute flex top-8 right-8 justify-center items-center "
           >

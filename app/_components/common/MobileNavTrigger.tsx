@@ -12,7 +12,6 @@ export function MobileNavTrigger() {
       <button
         onClick={() => {
           setIsVisible(true);
-          document.body.classList.add("loading");
         }}
         className="w-[140px] sm:w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center select-none"
       >
