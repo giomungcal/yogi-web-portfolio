@@ -7,6 +7,8 @@ import {
   ReactNode,
   SetStateAction,
   useContext,
+  useEffect,
+  useRef,
   useState,
 } from "react";
 
@@ -14,7 +16,9 @@ import {
 
 type LoaderContext = {
   isLoading: boolean;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  setIsLoading?: Dispatch<SetStateAction<boolean>>;
+  isFakeLoading: boolean;
+  setIsFakeLoading: Dispatch<SetStateAction<boolean>>;
   navigateTo: (target: string) => void;
 };
 
@@ -28,11 +32,29 @@ export function LoaderContextProvider({
   children,
 }: LoaderContextProviderProps) {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+
+  // Initial Mount Loading Screen
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function setLoading() {
+      setTimeout(() => {
+        setIsLoading(false);
+        console.log("Loading complete..");
+      }, 2500);
+    }
+    setLoading();
+  }, []);
+
+  // Fake Loader Setup - triggers everytime you route to another path
+
+  const [isFakeLoading, setIsFakeLoading] = useState(false);
 
   const navigateTo = async (target: string) => {
-    document.body.style.overflow = "hidden";
-    setIsLoading(true);
+    document.body.classList.add("loading");
+
+    setIsFakeLoading(true);
     console.log("Page loading..");
 
     await sleep(800);
@@ -40,11 +62,12 @@ export function LoaderContextProvider({
     router.push(target);
 
     await sleep(1000);
-    setIsLoading(false);
+    setIsFakeLoading(false);
 
-    console.log("Complete loading..");
+    console.log("Loading complete..");
     await sleep(1000);
-    document.body.style.overflow = "";
+
+    document.body.classList.remove("loading");
   };
 
   function sleep(ms: number) {
@@ -52,7 +75,9 @@ export function LoaderContextProvider({
   }
 
   return (
-    <LoaderContext.Provider value={{ isLoading, setIsLoading, navigateTo }}>
+    <LoaderContext.Provider
+      value={{ isFakeLoading, setIsFakeLoading, navigateTo, isLoading }}
+    >
       {children}
     </LoaderContext.Provider>
   );

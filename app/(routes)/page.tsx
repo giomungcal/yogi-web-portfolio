@@ -118,7 +118,7 @@ function JohnnyBanner() {
       src="/assets/images/johnny-banner.png"
       alt="Johnny Banner"
       className="hidden md:block absolute bottom-0 lg:w-[350px] md:w-[300px] lg:top-[5px] md:top-[90px] lg:left-[-158px] md:left-[-98px]"
-      whileHover={{ scale: [null, 1.1, 1.1] }}
+      whileHover={{ scale: [null, 1.08] }}
       transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
     />
   );
@@ -130,7 +130,7 @@ function GioBanner() {
       src="/assets/images/gio-banner.png"
       alt="Gio banner"
       className="hidden md:block absolute bottom-0 lg:w-[368px] md:w-[330px] top-[128px] left-[110px]"
-      whileHover={{ scale: [null, 1.1, 1.1] }}
+      whileHover={{ scale: [null, 1.08] }}
       transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
     />
   );

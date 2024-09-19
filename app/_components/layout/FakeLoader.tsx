@@ -4,16 +4,16 @@ import { useLoaderContext } from "@/app/_context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
-const Loader = ({}): React.ReactNode => {
-  const { isLoading } = useLoaderContext();
+const FakeLoader = ({}): React.ReactNode => {
+  const { isFakeLoading } = useLoaderContext();
 
   return (
     <AnimatePresence mode="wait">
-      {isLoading && (
+      {isFakeLoading && (
         <motion.div className="absolute inset-0 z-[50]">
           <motion.div
             initial={{ y: "-100%" }}
-            animate={{ y: isLoading ? "0%" : "-100%" }}
+            animate={{ y: isFakeLoading ? "0%" : "-100%" }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="w-full h-[50%] border-[17px] border-[#FFFFFF] border-dashed bg-[#F5D1ED] absolute top-0 z-[60] flex items-center"
@@ -36,7 +36,7 @@ const Loader = ({}): React.ReactNode => {
           </motion.div>
           <motion.div
             initial={{ y: "100%" }}
-            animate={{ y: isLoading ? "0%" : "100%" }}
+            animate={{ y: isFakeLoading ? "0%" : "100%" }}
             exit={{ y: "100%" }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="w-full h-[50%] border-[17px] border-[#FFFFFF] border-dashed  bg-[#E7D1F5] absolute bottom-0 flex items-center"
@@ -63,4 +63,4 @@ const Loader = ({}): React.ReactNode => {
   );
 };
 
-export default Loader;
+export default FakeLoader;

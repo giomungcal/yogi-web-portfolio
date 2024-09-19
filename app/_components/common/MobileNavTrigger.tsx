@@ -13,7 +13,7 @@ export function MobileNavTrigger() {
         onClick={() => {
           setIsVisible(true);
         }}
-        className="w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center cursor-pointer select-none"
+        className="w-[140px] sm:w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center cursor-pointer select-none"
       >
         <span>NAVIGATE</span>
       </a>

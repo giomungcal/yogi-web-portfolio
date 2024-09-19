@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MobileNav } from "../_components/common/MobileNav";
-import Loader from "../_components/layout/Loader";
+import FakeLoader from "../_components/layout/FakeLoader";
+import InitialLoader from "../_components/layout/InitialLoader";
 import {
   LoaderContextProvider,
   NavContextProvider,
@@ -30,7 +31,8 @@ export default function RootLayout({
       <body>
         <NavContextProvider>
           <LoaderContextProvider>
-            <Loader />
+            <InitialLoader />
+            <FakeLoader />
             {children}
           </LoaderContextProvider>
         </NavContextProvider>
