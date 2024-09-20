@@ -33,7 +33,7 @@ function Wrapper({ children, borderColor }: Props) {
   return (
     <div
       style={borderStyleVar}
-      className={`w-[80%] md:min-w-[700px] lg:max-w-[864px] md:h-[450px] bg-[#F8F8F8] md:p-4 drop-shadow-lg overflow-hidden md:overflow-visible my-16 sm:my-0`}
+      className={`w-[80%] md:min-w-[700px] lg:max-w-[864px] md:h-[450px] bg-[#F8F8F8] md:p-4 drop-shadow-lg overflow-hidden md:overflow-visible my-16 md:my-0`}
     >
       {children}
     </div>

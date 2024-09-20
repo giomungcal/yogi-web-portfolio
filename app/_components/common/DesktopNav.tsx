@@ -119,7 +119,10 @@ function DesktopNavButton({ href, name, index }: DesktopNavButtonProps) {
       }`}
       style={{ zIndex: zIndexHierarchy }}
     >
-      <img src={`/assets/images/${name}-stamp.png`} alt={name} />
+      <img
+        src={`/assets/images/${name.split(" ").join("")}-stamp.png`}
+        alt={name}
+      />
     </a>
   );
 }

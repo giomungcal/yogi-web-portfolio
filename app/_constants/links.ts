@@ -6,6 +6,6 @@ type NavLinkItem = {
 export const NAV_LINKS: NavLinkItem[] = [
   { name: "home", href: "/" },
   { name: "projects", href: "/projects" },
-  { name: "techstack", href: "/techstack" },
+  { name: "tech stack", href: "/techstack" },
   { name: "interests", href: "/interests" },
 ];

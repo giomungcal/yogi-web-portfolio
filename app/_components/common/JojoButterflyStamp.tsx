@@ -1,17 +1,17 @@
 type JojoButterflyStampProps = {
   fileName: string;
-  classNames: string;
+  className: string;
 };
 
 export function JojoButterflyStamp({
   fileName,
-  classNames,
+  className,
 }: JojoButterflyStampProps) {
   return (
     <img
       src={`/assets/images/${fileName}.png`}
       alt="Jojo Butterfly Stamp"
-      className={classNames}
+      className={className}
     />
   );
 }

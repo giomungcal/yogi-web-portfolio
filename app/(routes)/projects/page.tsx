@@ -1,6 +1,7 @@
 import DesktopNav from "@/app/_components/common/DesktopNav";
 import { JojoButterflyStamp } from "@/app/_components/common/JojoButterflyStamp";
 import { MobileNavTrigger } from "@/app/_components/common/MobileNavTrigger";
+import MobileNotice from "@/app/_components/common/MobileNotice";
 import Wrapper from "@/app/_components/layout/Wrapper";
 import { PROJECTS } from "@/app/_constants/projects";
 import useBorder from "@/app/_hooks/useBorder";
@@ -27,7 +28,7 @@ function Projects() {
             </h1>
             <JojoButterflyStamp
               fileName="stamp2"
-              classNames="hidden md:block z-10 w-[50px] md:w-[60px] lg:w-[70px] absolute  md:right-[-30px] md:bottom-[0px] rotate-[15deg] hover:scale-110 transition-all "
+              className="hidden md:block z-10 w-[50px] md:w-[60px] lg:w-[70px] absolute  md:right-[-30px] md:bottom-[0px] rotate-[15deg] hover:scale-110 transition-all "
             />
           </section>
           <MobileNavTrigger />
@@ -54,6 +55,7 @@ function Projects() {
               </a>
             ))}
           </section>
+          <MobileNotice className="pb-8" />
         </div>
       </main>
     </Wrapper>

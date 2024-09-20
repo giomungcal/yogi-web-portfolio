@@ -73,7 +73,7 @@ export function MobileNav() {
                   }}
                   className={`cursor-pointer flex justify-center items-center ${
                     pathname === href ? "text-[#263e17]" : "text-[#456033]"
-                  } text-5xl xs:text-7xl`}
+                  } text-5xl xs:text-6xl`}
                 >
                   <span>{name}</span>
                   {pathname === href && (
@@ -115,7 +115,7 @@ export function MobileNav() {
                   delay: 0.3,
                 },
               }}
-              className="mx-auto text-4xl xs:text-5xl text-[#135D29] "
+              className="mx-auto text-3xl sm:text-4xl text-[#135D29] "
             >
               close
             </motion.a>

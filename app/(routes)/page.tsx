@@ -4,6 +4,7 @@ import EmptyFillerDiv from "../_components/common/EmptyFillerDiv";
 import Footer from "../_components/common/Footer";
 import { JojoButterflyStamp } from "../_components/common/JojoButterflyStamp";
 import { MobileNavTrigger } from "../_components/common/MobileNavTrigger";
+import MobileNotice from "../_components/common/MobileNotice";
 import Wrapper from "../_components/layout/Wrapper";
 
 export default function Home() {
@@ -33,11 +34,11 @@ function LandingTitle() {
     <div className="relative flex flex-col justify-center items-center md:items-end md:justify-end pt-4 md:pt-0 md:mt-4 md:pl-2">
       <JojoButterflyStamp
         fileName="stamp1"
-        classNames="z-10 w-[50px] md:w-[79px] absolute md:mr-[-25px] top-[55px] md:top-[30px] rotate-12 hover:scale-110 transition-all ml-52 md:ml-0"
+        className="z-10 w-[50px] md:w-[79px] absolute md:mr-[-25px] top-[55px] md:top-[30px] rotate-12 hover:scale-110 transition-all ml-52 md:ml-0"
       />
       <JojoButterflyStamp
         fileName="stamp2"
-        classNames="z-10 w-[50px] md:w-[70px] absolute md:bottom-[-53px] -rotate-12 hover:scale-110 transition-all mr-56 md:mr-48 mt-36 md:mt-0"
+        className="z-10 w-[50px] md:w-[70px] absolute md:bottom-[-53px] -rotate-12 hover:scale-110 transition-all mr-56 md:mr-48 mt-36 md:mt-0"
       />
       <h2 className="md:absolute text-blue danfo-regular md:top-[6px] md:text-[80px] text-7xl leading-normal overflow-hidden">
         HI,I'M
@@ -104,13 +105,5 @@ function GioBanner() {
       whileHover={{ scale: [null, 1.08] }}
       transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
     />
-  );
-}
-
-function MobileNotice() {
-  return (
-    <p className="block md:hidden text-center text-[12px] italic opacity-50 px-8">
-      note: use desktop for a better experience
-    </p>
   );
 }
