@@ -32,9 +32,8 @@ export default function RootLayout({
       <body>
         <NavContextProvider>
           <LoaderContextProvider>
-            <InitialLoader />
+            {/* <InitialLoader /> */}
             <FakeLoader />
-
             {children}
             <Toaster
               position="top-right"

@@ -56,7 +56,7 @@ const InitialLoader = ({}): React.ReactNode => {
             })}
             className="w-full h-[100%] bg-[#B2BFFF] absolute top-0 z-[60]  flex flex-col justify-end"
           >
-            <motion.div className="danfo-regular md:text-[90px] lg:text-[100px] hidden md:block  ml-12 mb-12">
+            <motion.div className="danfo-regular md:text-[90px] lg:text-[100px] hidden md:block ml-12 mb-12">
               <motion.span
                 variants={container}
                 initial="initial"

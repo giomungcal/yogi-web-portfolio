@@ -1,4 +1,10 @@
-export const SOCIAL_LINKS = [
+interface SocialLinksItem {
+  name: string;
+  link: string;
+  img: string;
+}
+
+export const SOCIAL_LINKS: SocialLinksItem[] = [
   {
     name: "github",
     link: process.env.GITHUB_URL as string,

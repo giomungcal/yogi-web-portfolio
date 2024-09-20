@@ -7,25 +7,23 @@ import Wrapper from "../_components/layout/Wrapper";
 
 export default function Home() {
   return (
-    <>
-      <Wrapper borderColor={"lightpurple"}>
-        <YogiBanner />
-        <main className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden py-8 md:py-0 md:pr-10">
-          <DesktopNav className="ml-8" />
-          <MailStamp />
-          <LandingTitle />
-          <MobileNavTrigger />
-          <EmptyFillerDiv />
-          <section className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-10 gap-3">
-            <LandingBio />
-            <Footer />
-          </section>
-          <JohnnyBanner />
-          <GioBanner />
-          <MobileNotice />
-        </main>
-      </Wrapper>
-    </>
+    <Wrapper borderColor={"lightpurple"}>
+      <YogiBanner />
+      <main className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden py-8 md:py-0 md:pr-10">
+        <DesktopNav className="ml-8" />
+        <MailStamp />
+        <LandingTitle />
+        <MobileNavTrigger />
+        <EmptyFillerDiv />
+        <section className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-10 gap-3">
+          <LandingBio />
+          <Footer />
+        </section>
+        <JohnnyBanner />
+        <GioBanner />
+        <MobileNotice />
+      </main>
+    </Wrapper>
   );
 }
 

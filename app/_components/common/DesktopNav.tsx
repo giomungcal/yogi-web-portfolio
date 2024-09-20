@@ -18,7 +18,7 @@ export default function DesktopNav({ className }: Props) {
     <nav
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`hidden md:block w-[150px] h-[150px] z-50 ${className} group `}
+      className={`hidden md:block w-[150px] h-[150px] z-[50] ${className} group`}
     >
       {pathname === "/" ? (
         <DesktopHomeCTAButton isHovered={isHovered} />
@@ -60,7 +60,7 @@ function DesktopHomeCTAButton({ isHovered }: DesktopHomeCTAButtonProps) {
         }}
         src="/assets/images/gohere-stamp.png"
         alt="GoHere Button"
-        className="z-50"
+        className="z-[100]"
       />
     </a>
   );
@@ -74,7 +74,7 @@ function DesktopHomeNavButton() {
         e.preventDefault();
         navigateTo("/");
       }}
-      className="cursor-pointer absolute top-4 rotate-[6deg] group-hover:rotate-12 hover:scale-110 transition-all"
+      className="cursor-pointer absolute rotate-[6deg] group-hover:rotate-12 hover:scale-110 transition-all"
     >
       <img src="/assets/images/home-stamp.png" alt="HoverButton" />
     </a>
@@ -91,10 +91,18 @@ function DesktopNavButton({ href, name, index }: DesktopNavButtonProps) {
   const { navigateTo, pathname } = useLoaderContext();
 
   const NAV_TRANSITIONS = [
-    "group-hover:translate-x-[135px] z-[10]",
-    "group-hover:translate-x-[265px] group-hover:-rotate-12 z-[9]",
-    "group-hover:translate-x-[394px] z-[8]",
+    "group-hover:translate-x-[135px] ",
+    "group-hover:translate-x-[265px] group-hover:-rotate-12 ",
+    "group-hover:translate-x-[394px] ",
   ];
+
+  let zIndexHierarchy = 0;
+
+  if (href === pathname) {
+    zIndexHierarchy = 50;
+  } else {
+    zIndexHierarchy = (NAV_LINKS.length - index) * 10;
+  }
 
   const isTheButtonTheCurrentPage = href === pathname;
 
@@ -108,7 +116,8 @@ function DesktopNavButton({ href, name, index }: DesktopNavButtonProps) {
       }}
       className={`cursor-pointer absolute hover:scale-110 transition-all ${
         NAV_TRANSITIONS[index - 1]
-      } ${href === pathname && "z-50"}`}
+      }`}
+      style={{ zIndex: zIndexHierarchy }}
     >
       <img src={`/assets/images/${name}-stamp.png`} alt={name} />
     </a>

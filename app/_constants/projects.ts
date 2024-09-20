@@ -1,4 +1,13 @@
-export const PROJECTS = [
+interface ProjectItem {
+  id: number;
+  name: string;
+  title: string;
+  techstack: string[];
+  website: boolean;
+  github: boolean;
+}
+
+export const PROJECTS: ProjectItem[] = [
   {
     id: 1,
     name: "this site ★",

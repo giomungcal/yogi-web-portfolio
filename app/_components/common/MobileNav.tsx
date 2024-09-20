@@ -54,7 +54,7 @@ export function MobileNav() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className={`md:hidden fixed top-0 left-0 flex flex-col justify-end items-start h-screen w-full bg-[#E9F9C6] z-[50] danfo-regular text-xl p-8`}
+          className={`md:hidden fixed top-0 left-0 flex flex-col justify-center items-start h-screen w-full bg-[#E9F9C6] z-[50] danfo-regular text-xl p-8`}
         >
           <motion.div
             variants={container}
