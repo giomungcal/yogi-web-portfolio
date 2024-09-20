@@ -1,11 +1,12 @@
-interface ProjectItem {
+type ProjectItem = {
   id: number;
   name: string;
+  subtext?: string;
   title: string;
   techstack: string[];
   website: boolean;
   github: boolean;
-}
+};
 
 export const PROJECTS: ProjectItem[] = [
   {

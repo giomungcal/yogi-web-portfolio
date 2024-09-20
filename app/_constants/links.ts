@@ -1,7 +1,7 @@
-interface NavLinkItem {
+type NavLinkItem = {
   name: string;
   href: string;
-}
+};
 
 export const NAV_LINKS: NavLinkItem[] = [
   { name: "home", href: "/" },

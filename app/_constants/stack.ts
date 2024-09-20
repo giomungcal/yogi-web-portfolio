@@ -1,5 +1,5 @@
 import { IconType } from "react-icons";
-import { FaCss3, FaHtml5, FaJs, FaNodeJs, FaReact } from "react-icons/fa";
+import { FaCss3Alt, FaHtml5, FaJs, FaNodeJs, FaReact } from "react-icons/fa";
 import {
   SiAdobephotoshop,
   SiAdobexd,
@@ -10,12 +10,12 @@ import {
   SiUnity,
 } from "react-icons/si";
 
-interface TechStackItem {
+type TechStackItem = {
   title: string;
   link: string;
   Icon: IconType;
   color: string;
-}
+};
 
 export const TECH_STACK: TechStackItem[] = [
   {
@@ -27,7 +27,7 @@ export const TECH_STACK: TechStackItem[] = [
   {
     title: "CSS",
     link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-    Icon: FaCss3,
+    Icon: FaCss3Alt,
     color: "text-[#006CB4]", // CSS color
   },
   {

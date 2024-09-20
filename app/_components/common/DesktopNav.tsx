@@ -74,7 +74,7 @@ function DesktopHomeNavButton() {
         e.preventDefault();
         navigateTo("/");
       }}
-      className="cursor-pointer absolute rotate-[6deg] group-hover:rotate-12 hover:scale-110 transition-all"
+      className="cursor-pointer absolute rotate-[6deg] mt-[-2.5px] group-hover:rotate-12 hover:scale-110 transition-all"
     >
       <img src="/assets/images/home-stamp.png" alt="HoverButton" />
     </a>

@@ -1,4 +1,5 @@
 import DesktopNav from "@/app/_components/common/DesktopNav";
+import { JojoButterflyStamp } from "@/app/_components/common/JojoButterflyStamp";
 import { MobileNavTrigger } from "@/app/_components/common/MobileNavTrigger";
 import Wrapper from "@/app/_components/layout/Wrapper";
 import { PROJECTS } from "@/app/_constants/projects";
@@ -24,10 +25,9 @@ function Projects() {
             <h1 className="text-[#94BD33] lg:text-[123px] text-[45px] xs:text-[70px] sm:text-[96px] danfo-comb lg:mt-[-15px] md:mb-[-20px] lg:mb-[-5px]">
               PROJECTS
             </h1>
-            <img
-              src="/assets/images/stamp2.png"
-              alt="Jojo Stamp"
-              className="hidden md:block z-10 w-[50px] md:w-[60px] lg:w-[70px] absolute  md:right-[-30px] md:bottom-[0px] rotate-[15deg] hover:scale-110 transition-all "
+            <JojoButterflyStamp
+              fileName="stamp2"
+              classNames="hidden md:block z-10 w-[50px] md:w-[60px] lg:w-[70px] absolute  md:right-[-30px] md:bottom-[0px] rotate-[15deg] hover:scale-110 transition-all "
             />
           </section>
           <MobileNavTrigger />

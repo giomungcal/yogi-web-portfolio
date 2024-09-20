@@ -3,7 +3,13 @@ import React from "react";
 
 type Props = {
   children: React.ReactNode;
-  borderColor: "lightpurple" | "lightgreen" | "gray" | "gold" | "olive";
+  borderColor:
+    | "lightpurple"
+    | "lightgreen"
+    | "gray"
+    | "gold"
+    | "olive"
+    | "teal";
 };
 
 function Wrapper({ children, borderColor }: Props) {
@@ -14,6 +20,7 @@ function Wrapper({ children, borderColor }: Props) {
     gray: "#C1CDCF",
     gold: "#F5C95E",
     olive: "#CAD40F",
+    teal: "#92C9BD",
   };
 
   const borderStyleVar = useBorder({

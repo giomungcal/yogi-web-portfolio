@@ -1,8 +1,8 @@
-interface SocialLinksItem {
+type SocialLinksItem = {
   name: string;
   link: string;
   img: string;
-}
+};
 
 export const SOCIAL_LINKS: SocialLinksItem[] = [
   {
