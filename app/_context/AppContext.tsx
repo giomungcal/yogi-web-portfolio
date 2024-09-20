@@ -60,17 +60,22 @@ export function LoaderContextProvider({
     console.log("Page loading..");
 
     await sleep(800);
-
     router.push(target);
 
-    await sleep(1000);
-    setIsFakeLoading(false);
-
-    console.log("Loading complete..");
-    await sleep(1000);
+    // Loading is set to false on pathname change (see below useEffect)
 
     document.body.classList.remove("loading");
   };
+
+  // Only sets loading to false once pathname is changed.
+
+  useEffect(() => {
+    async function setLoadingToFalse() {
+      await sleep(500);
+      setIsFakeLoading(false);
+    }
+    setLoadingToFalse();
+  }, [pathname]);
 
   function sleep(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
