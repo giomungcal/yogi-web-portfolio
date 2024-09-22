@@ -31,7 +31,7 @@ export default function Home() {
 
 function LandingTitle() {
   return (
-    <div className="relative flex flex-col justify-center items-center md:items-end md:justify-end pt-4 md:pt-0 md:mt-4 md:pl-2">
+    <div className="relative flex flex-col justify-center items-center md:items-end md:justify-end pt-4 md:pt-0 md:mt-4 md:pl-2 select-none">
       <JojoButterflyStamp
         fileName="stamp1"
         className="z-10 w-[50px] md:w-[79px] absolute md:mr-[-25px] top-[55px] md:top-[30px] rotate-12 hover:scale-110 transition-all ml-52 md:ml-0"
@@ -77,9 +77,10 @@ function MailStamp() {
 function LandingBio() {
   return (
     <p className="kode-mono-regular text-center md:text-right text-[13px] md:text-[11.5px] lg:text-[13px] md:max-w-[250px] lg:max-w-[360px] px-12 md:px-0 lg:leading-5">
-      a front-end developer shifting from a career in information security after
-      realizing where my passion really lies. i’ve decided to dive back into web
-      development, to pursue what my heart truly wants ♡
+      a <span className="kode-mono-bold">front-end developer</span> shifting
+      from a career in information security upon realizing where my passion
+      really lies. after 4 years, i’ve decided to dive back into web development
+      to pursue what my heart truly wants ♡
     </p>
   );
 }

@@ -15,15 +15,8 @@ export const PROJECTS: ProjectItem[] = [
     id: 1,
     name: "this site ★",
     title: "This Site ★",
-    techstack: [
-      "html",
-      "css",
-      "react",
-      "tailwindcss",
-      "nextjs",
-      "framer motion",
-    ],
-    website: true,
+    techstack: ["react", "nextjs", "tailwind", "framer motion"],
+    website: false,
     github: true,
     description:
       "A personal portfolio website showcasing various projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills.",
@@ -38,7 +31,7 @@ export const PROJECTS: ProjectItem[] = [
     id: 2,
     name: "pinterest clone",
     title: "Pinterest Clone",
-    techstack: ["html", "css", "react"],
+    techstack: ["react", "nextjs", "tailwind", "context api"],
     website: true,
     github: true,
     description:
@@ -54,7 +47,7 @@ export const PROJECTS: ProjectItem[] = [
     id: 3,
     name: "wordle game",
     title: "Wordle Game",
-    techstack: ["html", "css", "react"],
+    techstack: ["react", "typescript"],
     website: true,
     github: true,
     description:
@@ -69,7 +62,7 @@ export const PROJECTS: ProjectItem[] = [
     id: 4,
     name: "small projects",
     title: "Small Projects",
-    techstack: ["html", "css", "react"],
+    techstack: ["html", "css", "javascript", "react"],
     website: false,
     github: true,
     description:
@@ -84,7 +77,7 @@ export const PROJECTS: ProjectItem[] = [
     name: "electro knight",
     subtext: "mobile game",
     title: "ElectroKnight Mobile Game",
-    techstack: ["html", "css", "react"],
+    techstack: ["unity", "c#", "photoshop"],
     website: false,
     github: true,
     description:
@@ -100,7 +93,7 @@ export const PROJECTS: ProjectItem[] = [
     id: 6,
     name: "previous portfolio",
     title: "Previous Portfolio",
-    techstack: ["html", "css", "react"],
+    techstack: ["react"],
     website: true,
     github: true,
     description:
@@ -114,9 +107,9 @@ export const PROJECTS: ProjectItem[] = [
   },
   {
     id: 7,
-    name: "figma designs",
+    name: "UI designs",
     title: "Figma Designs",
-    techstack: ["html", "css", "react"],
+    techstack: ["figma", "adobe xd", "photoshop"],
     website: true,
     github: false,
     description:
@@ -127,7 +120,7 @@ export const PROJECTS: ProjectItem[] = [
     id: 8,
     name: "school projects",
     title: "School Projects",
-    techstack: ["html", "css", "react"],
+    techstack: ["html", "css", "javascript"],
     website: false,
     github: true,
     description:

@@ -38,7 +38,7 @@ export default function ProjectsModal({
     // Animate transitions
     await modalAnimate(
       modalScope.current,
-      { y: "calc(100vh)" },
+      { y: "100vh" },
       { ease: [0.25, 0.8, 0.5, 1] }
     );
 
@@ -57,7 +57,7 @@ export default function ProjectsModal({
     setActiveImg(0);
     await modalAnimate(
       modalScope.current,
-      { y: "calc(100vh)" },
+      { y: "100vh" },
       { ease: [0.25, 0.8, 0.5, 1] }
     );
     await setActiveProjectId((prev: number) =>
@@ -124,9 +124,9 @@ export default function ProjectsModal({
             borderDash: "26px",
             borderSpacing: "52px",
           })}
-          className="w-full h-full flex md:flex-row flex-col justify-between p-10 gap-x-6 custom-scrollbar overflow-hidden"
+          className="w-full h-full flex md:flex-row flex-col justify-between p-10 gap-x-6 custom-scrollbar overflow-hidden "
         >
-          <section className="relative md:w-[50%] w-full min-h-[300px] max-h-[400px] overflow-hidden">
+          <section className="relative md:w-[50%] w-full min-h-[300px] max-h-[400px] overflow-hidden group">
             <img
               ref={imgScope}
               className="absolute inset-0 w-full h-full object-cover z-20"
@@ -136,13 +136,13 @@ export default function ProjectsModal({
             {PROJECTS[activeProjectId].images.length > 1 && (
               <>
                 <Button
-                  className="absolute bottom-2 left-2 z-30 opacity-80"
+                  className="absolute bottom-2 left-2 z-30 lg:opacity-0 lg:group-hover:opacity-80"
                   onClick={handlePrevImg}
                 >
                   <MdNavigateBefore />
                 </Button>
                 <Button
-                  className="absolute bottom-2 right-2 z-30 opacity-80"
+                  className="absolute bottom-2 right-2 z-30 lg:opacity-0 lg:group-hover:opacity-80"
                   onClick={handleNextImg}
                 >
                   <MdNavigateNext />
