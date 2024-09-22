@@ -1,7 +1,4 @@
-"use client";
-
 import DesktopNav from "@/app/_components/common/DesktopNav";
-import Footer from "@/app/_components/common/Footer";
 import { JojoButterflyStamp } from "@/app/_components/common/JojoButterflyStamp";
 import { MobileNavTrigger } from "@/app/_components/common/MobileNavTrigger";
 import MobileNotice from "@/app/_components/common/MobileNotice";
@@ -32,7 +29,6 @@ export default function TechStack() {
                   <br />
                   STACK
                   <span className="block md:hidden md:text-[60px] sm:text-[55px] text-[45px]  sm:leading-[4rem] xs:leading-[3.5rem] leading-[2.5rem] text-[#4B9297]">
-                    {" "}
                     & OTHER SKILLS
                   </span>
                 </h1>
