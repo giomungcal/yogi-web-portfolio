@@ -205,9 +205,9 @@ body {
   display: none;
 }
 
-.modal-open {
+.modal-overlay-open {
   display: block;
 }
-.modal-close {
+.modal-overlay-close {
   display: hidden;
 }

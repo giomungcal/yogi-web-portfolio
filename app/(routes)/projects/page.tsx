@@ -4,26 +4,33 @@ import DesktopNav from "@/app/_components/common/DesktopNav";
 import { JojoButterflyStamp } from "@/app/_components/common/JojoButterflyStamp";
 import { MobileNavTrigger } from "@/app/_components/common/MobileNavTrigger";
 import MobileNotice from "@/app/_components/common/MobileNotice";
+import ProjectsModal from "@/app/_components/layout/ProjectsModal";
 import Wrapper from "@/app/_components/layout/Wrapper";
 import { PROJECTS } from "@/app/_constants/projects";
 import useBorder from "@/app/_hooks/useBorder";
-import * as motion from "framer-motion/client";
-import { ButtonHTMLAttributes, ReactNode, useRef, useState } from "react";
-import { IoIosClose } from "react-icons/io";
-import { twMerge } from "tailwind-merge";
+import { AnimatePresence } from "framer-motion";
 
+import * as motion from "framer-motion/client";
+import {
+  ButtonHTMLAttributes,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { twMerge } from "tailwind-merge";
 export default function Projects() {
   const [activeProjectId, setActiveProjectId] = useState<number>(0);
-  const modalRef = useRef<HTMLDialogElement | null>(null);
-  const modalOverlayRef = useRef<HTMLDivElement | null>(null);
+  const [modalDisplayed, setIsModalDisplayed] = useState<boolean>(false);
 
   function handleOpenModal(index: number): void {
     setActiveProjectId(index);
-    modalRef.current?.showModal();
+    setIsModalDisplayed(true);
+  }
 
-    // modalOverlayRef.current?.classList.add("modal-open");
-    if (modalOverlayRef.current)
-      modalOverlayRef.current.style.display = "block";
+  function handleCloseModal() {
+    setIsModalDisplayed(false);
+    console.log("Closing");
   }
 
   return (
@@ -59,172 +66,16 @@ export default function Projects() {
           </div>
         </main>
       </Wrapper>
-
-      <ProjectsModal
-        modalRef={modalRef}
-        modalOverlayRef={modalOverlayRef}
-        activeProjectId={activeProjectId}
-        setActiveProjectId={setActiveProjectId}
-      />
+      <AnimatePresence>
+        {modalDisplayed && (
+          <ProjectsModal
+            activeProjectId={activeProjectId}
+            setActiveProjectId={setActiveProjectId}
+            handleCloseModal={handleCloseModal}
+          />
+        )}
+      </AnimatePresence>
     </>
-  );
-}
-
-function ProjectsModal({
-  modalRef,
-  modalOverlayRef,
-  activeProjectId,
-  setActiveProjectId,
-}) {
-  const [activeImg, setActiveImg] = useState(0);
-
-  function handleNextImg() {
-    PROJECTS[activeProjectId].images.length - 1 !== activeImg
-      ? setActiveImg((prev) => prev + 1)
-      : setActiveImg(0);
-  }
-
-  function handlePrevImg() {
-    activeImg !== 0
-      ? setActiveImg((prev) => prev - 1)
-      : setActiveImg(PROJECTS[activeProjectId].images.length - 1);
-  }
-
-  function handleOverlayClick(e: React.MouseEvent<HTMLDivElement>) {
-    modalOverlayRef.current.style.display = "none";
-    modalRef.current.close();
-  }
-
-  return (
-    <div
-      ref={modalOverlayRef}
-      className="modal-overlay hidden fixed top-0 bottom-0 left-0 right-0 bg-black/20"
-      onClick={handleOverlayClick}
-    >
-      <dialog
-        ref={modalRef}
-        className="w-[80%] md:h-[450px] md:min-w-[700px] lg:max-w-[864px] bg-[#F8F8F8] drop-shadow-lg no-scrollbar overflow-auto"
-      >
-        <div
-          onClick={(e) => e.stopPropagation()}
-          style={useBorder({
-            borderWidth: "13px",
-            borderColor: "#CAD40F",
-            borderDash: "26px",
-            borderSpacing: "52px",
-          })}
-          className=" w-full h-full flex md:flex-row flex-col justify-between p-10 gap-x-6 overflow-hidden"
-        >
-          <div className="relative md:w-[50%] w-full min-h-[300px] max-h-[400px] bg-black overflow-hidden">
-            <img
-              className="absolute inset-0 w-full h-full object-cover"
-              src={PROJECTS[activeProjectId].images[activeImg]}
-              alt="Project Image"
-            />
-            <div>
-              {PROJECTS[activeProjectId].images.length > 1 && (
-                <>
-                  <Button
-                    className="absolute bottom-2 left-2"
-                    onClick={handlePrevImg}
-                  >
-                    prev
-                  </Button>
-                  <Button
-                    className="absolute bottom-2 right-2"
-                    onClick={handleNextImg}
-                  >
-                    next
-                  </Button>
-                </>
-              )}
-            </div>
-          </div>
-          <section className="relative md:w-[50%] h-full flex flex-col justify-between items-start">
-            <>
-              <div className="w-full flex flex-col items-start gap-y-3 py-4 md:py-0">
-                <div className="w-[90%] flex justify-between">
-                  <h2 className="danfo-regular text-4xl leading-[1.8rem] xs:text-5xl xs:leading-[2.4rem] sm:text-6xl sm:leading-[3rem] md:text-[3.8rem] lg:text-[4.1rem] text-[#95A331] md:leading-[3.5rem] ">
-                    {PROJECTS[activeProjectId].name}
-                  </h2>
-                </div>
-
-                <h3 className="kode-mono-bold text-[13px] text-black/60 tracking-tight">
-                  // made with{" "}
-                  {PROJECTS[activeProjectId].techstack.map((p, index) => {
-                    return PROJECTS[activeProjectId].techstack.length - 1 !==
-                      index
-                      ? `${p}, `
-                      : `${p}`;
-                  })}
-                </h3>
-                <div className="overflow-auto min-h-12 max-h-32 custom-scrollbar">
-                  <p className="jetbrains-mono-medium text-xs">
-                    {PROJECTS[activeProjectId].description}
-                  </p>
-                </div>
-              </div>
-              <div className="w-full flex sm:flex-row sm:justify-between  items-end flex-col gap-y-2 gap-x-2 md:text-sm lg:text-base">
-                <div className="flex gap-x-2 items-end">
-                  {PROJECTS[activeProjectId].website && (
-                    <Button className="text-white">site</Button>
-                  )}
-                  {PROJECTS[activeProjectId].github && (
-                    <Button className="text-white">github</Button>
-                  )}
-                </div>
-                <div className="flex gap-x-2 items-end">
-                  <Button
-                    onClick={() => {
-                      modalOverlayRef.current.style.display = "none";
-                      modalRef.current?.close();
-                    }}
-                    className="bg-[#FAFF5F] max-w-20"
-                  >
-                    <span className="text-yellow-900 tracking-tight">
-                      close
-                    </span>
-                  </Button>
-                  <Button
-                    onClick={() =>
-                      setActiveProjectId((prev: number) =>
-                        prev !== null
-                          ? PROJECTS.length - 1 === prev
-                            ? 0
-                            : prev + 1
-                          : 0
-                      )
-                    }
-                    className="bg-[#FAFF5F] max-w-20"
-                  >
-                    <span className="text-yellow-900 tracking-tight">next</span>
-                  </Button>
-                </div>
-              </div>
-            </>
-          </section>
-        </div>
-      </dialog>
-    </div>
-  );
-}
-
-type ButtonProps = {
-  children: ReactNode;
-  className?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
-
-function Button({ children, className, ...props }: ButtonProps) {
-  return (
-    <button
-      className={twMerge(
-        " jetbrains-mono-extrabold bg-[#DCF615] border-2 border-black h-10 px-4 select-none",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </button>
   );
 }
 

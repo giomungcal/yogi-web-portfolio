@@ -21,6 +21,7 @@ type LoaderContext = {
   setIsFakeLoading: Dispatch<SetStateAction<boolean>>;
   navigateTo: (target: string) => void;
   pathname: string;
+  useSleep: (x: number) => void;
 };
 
 const LoaderContext = createContext<LoaderContext | null>(null);
@@ -59,7 +60,7 @@ export function LoaderContextProvider({
     setIsFakeLoading(true);
     console.log("Page loading..");
 
-    await sleep(800);
+    await useSleep(800);
     router.push(target);
 
     // Loading is set to false on pathname change (see below useEffect)
@@ -71,13 +72,13 @@ export function LoaderContextProvider({
 
   useEffect(() => {
     async function setLoadingToFalse() {
-      await sleep(500);
+      await useSleep(500);
       setIsFakeLoading(false);
     }
     setLoadingToFalse();
   }, [pathname]);
 
-  function sleep(ms: number) {
+  function useSleep(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
@@ -89,6 +90,7 @@ export function LoaderContextProvider({
         navigateTo,
         isLoading,
         pathname,
+        useSleep,
       }}
     >
       {children}

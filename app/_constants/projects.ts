@@ -26,7 +26,7 @@ export const PROJECTS: ProjectItem[] = [
     website: true,
     github: true,
     description:
-      "A personal portfolio website showcasing various projects and skills.",
+      "A personal portfolio website showcasing various projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills.",
     images: [
       "https://via.placeholder.com/300x200",
       "https://via.placeholder.com/400x300",
