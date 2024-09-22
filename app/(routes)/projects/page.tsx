@@ -90,21 +90,23 @@ function ProjectsModal({
       : setActiveImg(PROJECTS[activeProjectId].images.length - 1);
   }
 
-  function handleOverlayClick(e: React.MouseEvent<HTMLButtonElement>) {
-    if (e.target === e?.currentTarget) console.log("Overlay clicked!");
+  function handleOverlayClick(e: React.MouseEvent<HTMLDivElement>) {
+    modalOverlayRef.current.style.display = "none";
+    modalRef.current.close();
   }
 
   return (
     <div
       ref={modalOverlayRef}
       className="modal-overlay hidden fixed top-0 bottom-0 left-0 right-0 bg-black/20"
-      onClick={(e) => handleOverlayClick(e)}
+      onClick={handleOverlayClick}
     >
       <dialog
         ref={modalRef}
         className="w-[80%] md:h-[450px] md:min-w-[700px] lg:max-w-[864px] bg-[#F8F8F8] drop-shadow-lg no-scrollbar overflow-auto"
       >
         <div
+          onClick={(e) => e.stopPropagation()}
           style={useBorder({
             borderWidth: "13px",
             borderColor: "#CAD40F",
@@ -258,7 +260,7 @@ function ProjectTile({
   return (
     <button
       onClick={() => handleOpenModal(index)}
-      className="flex flex-col justify-center items-center md:items-start cursor-pointer bg-[#FFFBEE] p-4 md:min-h-[100px] md:max-h-[120px] min-h-[70px]"
+      className="flex flex-col justify-center items-center cursor-pointer bg-[#FFFBEE] p-4 md:min-h-[100px] md:max-h-[120px] min-h-[70px]"
       style={useBorder({
         borderWidth: "1.2px",
         borderColor: "#E3801C",
@@ -270,7 +272,7 @@ function ProjectTile({
         {name}
       </span>
       {subtext && (
-        <p className="kode-mono-regular text-xs md:text-[9px] lg:text-xs text-[#DB874B]">
+        <p className="kode-mono-regular text-xs md:text-[9px] lg:text-xs text-[#DB874B] text-center">
           {subtext}
         </p>
       )}
