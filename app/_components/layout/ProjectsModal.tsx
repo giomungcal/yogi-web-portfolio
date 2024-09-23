@@ -260,9 +260,17 @@ function ModalControls({
           <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger>
-                <Button className="text-white">
-                  <RiExternalLinkLine size={20} />
-                </Button>
+                {PROJECTS[activeProjectId].websiteLink && (
+                  <a
+                    href={PROJECTS[activeProjectId].websiteLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="text-white">
+                      <RiExternalLinkLine size={20} />
+                    </Button>{" "}
+                  </a>
+                )}
               </TooltipTrigger>
               <TooltipContent className=" bg-[#435934] text-sm px-4 py-2 rounded">
                 <p className="text-white">site</p>
@@ -274,9 +282,17 @@ function ModalControls({
           <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger>
-                <Button className="text-white">
-                  <FiGithub size={20} />
-                </Button>
+                {PROJECTS[activeProjectId].githubLink && (
+                  <a
+                    href={PROJECTS[activeProjectId].githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="text-white">
+                      <FiGithub size={20} />
+                    </Button>
+                  </a>
+                )}
               </TooltipTrigger>
               <TooltipContent className="bg-[#435934] text-sm px-4 py-2 rounded">
                 <p className="text-white">github</p>
