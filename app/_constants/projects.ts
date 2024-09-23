@@ -15,14 +15,14 @@ export const PROJECTS: ProjectItem[] = [
     id: 1,
     name: "this site ★",
     title: "This Site ★",
-    techstack: ["react", "nextjs", "tailwind", "framer motion"],
+    techstack: ["react", "nextjs", "tailwind", "framer motion", "ui design"],
     website: false,
     github: true,
     description:
       "A personal portfolio website showcasing various projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills. projects and skills.",
     images: [
-      "https://via.placeholder.com/300x200",
-      "https://via.placeholder.com/400x300",
+      "https://i.imgur.com/gDRsGqM.gif",
+      "https://i.imgur.com/aCxUkT8.gif",
       "https://via.placeholder.com/250x250",
       "https://via.placeholder.com/500x150",
     ],
@@ -37,7 +37,7 @@ export const PROJECTS: ProjectItem[] = [
     description:
       "A clone of Pinterest built with React, mimicking its design and core functionality.",
     images: [
-      "https://via.placeholder.com/350x250",
+      "https://i.imgur.com/mzBXo3v.gif",
       "https://via.placeholder.com/200x300",
       "https://via.placeholder.com/600x400",
       "https://via.placeholder.com/300x300",
@@ -53,7 +53,7 @@ export const PROJECTS: ProjectItem[] = [
     description:
       "A fun Wordle game recreation using React and CSS to handle the UI.",
     images: [
-      "https://via.placeholder.com/450x300",
+      "https://i.imgur.com/vjsyaNh.gif",
       "https://via.placeholder.com/300x400",
       "https://via.placeholder.com/350x200",
     ],

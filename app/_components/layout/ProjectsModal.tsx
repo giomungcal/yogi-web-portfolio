@@ -15,6 +15,7 @@ import { FiGithub } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import { RiExternalLinkLine } from "react-icons/ri";
+import { twMerge } from "tailwind-merge";
 import Button from "../common/Button";
 type Props = {
   activeProjectId: number;
@@ -28,8 +29,11 @@ export default function ProjectsModal({
   handleCloseModal,
 }: Props) {
   const [activeImg, setActiveImg] = useState(0);
-
+  const [imgLoading, setImgLoading] = useState(true);
   const [modalScope, modalAnimate] = useAnimate();
+  const [imgSrc, setImgSrc] = useState(
+    PROJECTS[activeProjectId].images[activeImg]
+  );
 
   async function handleNextProject() {
     // Reset active image
@@ -55,6 +59,7 @@ export default function ProjectsModal({
 
   async function handlePrevProject() {
     setActiveImg(0);
+
     await modalAnimate(
       modalScope.current,
       { y: "100vh" },
@@ -69,6 +74,11 @@ export default function ProjectsModal({
       { ease: [0.25, 0.8, 0.5, 1] }
     );
   }
+
+  useEffect(() => {
+    setImgLoading(true);
+    setImgSrc(PROJECTS[activeProjectId].images[activeImg]);
+  }, [activeProjectId, activeImg]);
 
   const [imgScope, imgAnimate] = useAnimate();
 
@@ -114,7 +124,7 @@ export default function ProjectsModal({
           x: "calc(100vw + 50%)",
           transition: { ease: [0.25, 0.8, 0.5, 1], duration: 0.6 },
         }}
-        className=" w-[80%] max-h-[90%] md:h-[450px] md:min-w-[700px] lg:max-w-[864px] bg-[#F8F8F8] drop-shadow-lg custom-scrollbar overflow-auto"
+        className=" w-[80%] max-h-[90%] md:h-[450px] md:min-w-[700px] lg:max-w-[1000px] bg-[#F8F8F8] drop-shadow-lg custom-scrollbar overflow-auto"
       >
         <div
           onClick={(e) => e.stopPropagation()}
@@ -126,12 +136,28 @@ export default function ProjectsModal({
           })}
           className="w-full h-full flex md:flex-row flex-col justify-between p-10 gap-x-6 custom-scrollbar overflow-hidden "
         >
-          <section className="relative md:w-[50%] w-full min-h-[300px] max-h-[400px] overflow-hidden group">
+          <section className="relative md:w-[50%] lg:w-[60%] w-full min-h-[300px] max-h-[400px] overflow-hidden group">
+            {imgLoading && (
+              <img
+                src="https://via.placeholder.com/300x300"
+                alt=""
+                className={twMerge(
+                  "absolute inset-0 w-full h-full object-cover z-10 opacity-100 transition-all"
+                )}
+              />
+            )}
             <img
               ref={imgScope}
-              className="absolute inset-0 w-full h-full object-cover z-20"
-              src={PROJECTS[activeProjectId].images[activeImg]}
+              className={twMerge(
+                "absolute inset-0 w-full h-full object-cover z-20 transition-all",
+                imgLoading ? "opacity-0" : "opacity-100"
+              )}
+              src={imgSrc}
               alt={`${PROJECTS[activeProjectId].name} - Image ${activeImg + 1}`}
+              onLoad={() => {
+                console.log("Img has loaded!");
+                setImgLoading(false);
+              }}
             />
             {PROJECTS[activeProjectId].images.length > 1 && (
               <>
@@ -150,7 +176,7 @@ export default function ProjectsModal({
               </>
             )}
           </section>
-          <section className="relative md:w-[50%] h-full flex flex-col justify-between items-start">
+          <section className="relative md:w-[50%] lg:w-[40%] h-full flex flex-col justify-between items-start">
             <>
               <ModalContent activeProjectId={activeProjectId} />
               <ModalControls
