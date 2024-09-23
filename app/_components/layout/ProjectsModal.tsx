@@ -9,7 +9,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import { AnimationScope, motion, useAnimate, usePresence } from "framer-motion";
+import {
+  AnimatePresence,
+  AnimationScope,
+  motion,
+  useAnimate,
+  usePresence,
+} from "framer-motion";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { FiGithub } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
@@ -137,15 +143,27 @@ export default function ProjectsModal({
           className="w-full h-full flex md:flex-row flex-col justify-between p-10 gap-x-6 custom-scrollbar overflow-hidden "
         >
           <section className="relative md:w-[50%] lg:w-[60%] w-full min-h-[300px] max-h-[400px] overflow-hidden group">
-            {imgLoading && (
-              <img
-                src="https://via.placeholder.com/300x300"
-                alt=""
-                className={twMerge(
-                  "absolute inset-0 w-full h-full object-cover z-10 opacity-100 transition-all"
-                )}
-              />
-            )}
+            <AnimatePresence>
+              {true && (
+                <div className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 flex justify-center items-center p-6">
+                  <motion.img
+                    animate={{
+                      rotate: [0, 270, 0],
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                      duration: 2.5,
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatType: "loop",
+                    }}
+                    className="w-[80px]"
+                    src="/assets/images/smiley.png"
+                    alt="Smiley"
+                  />
+                </div>
+              )}
+            </AnimatePresence>
             <img
               ref={imgScope}
               className={twMerge(
