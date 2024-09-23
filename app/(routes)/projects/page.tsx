@@ -33,6 +33,14 @@ export default function Projects() {
     console.log("Closing");
   }
 
+  useEffect(() => {
+    if (modalDisplayed) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [modalDisplayed]);
+
   return (
     <>
       <Wrapper borderColor={"lightgreen"}>

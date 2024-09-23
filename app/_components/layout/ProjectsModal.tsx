@@ -130,7 +130,7 @@ export default function ProjectsModal({
           x: "calc(100vw + 50%)",
           transition: { ease: [0.25, 0.8, 0.5, 1], duration: 0.6 },
         }}
-        className=" w-[80%] max-h-[90%] md:h-[450px] md:min-w-[700px] lg:max-w-[1000px] bg-[#F8F8F8] drop-shadow-lg custom-scrollbar overflow-auto"
+        className="w-[80%] max-h-[90%] md:h-[450px] md:min-w-[700px] lg:max-w-[1100px] bg-[#F8F8F8] drop-shadow-lg custom-scrollbar overflow-auto"
       >
         <div
           onClick={(e) => e.stopPropagation()}
@@ -171,10 +171,16 @@ export default function ProjectsModal({
                 imgLoading ? "opacity-0" : "opacity-100"
               )}
               src={imgSrc}
+              //   Image keeps on loading the previous src img, apparently it needed a key for it to be unique yay
+              //  https://stackoverflow.com/questions/50690956/react-img-not-immediately-changing-when-src-changes-how-can-i-fix-this
+              key={imgSrc}
               alt={`${PROJECTS[activeProjectId].name} - Image ${activeImg + 1}`}
               onLoad={() => {
-                console.log("Img has loaded!");
+                console.log("Img has loaded.");
                 setImgLoading(false);
+              }}
+              onError={() => {
+                console.log("Encountered an error loading image.");
               }}
             />
             {PROJECTS[activeProjectId].images.length > 1 && (
