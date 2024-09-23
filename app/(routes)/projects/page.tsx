@@ -119,7 +119,7 @@ function ProjectTile({
   return (
     <button
       onClick={() => handleOpenModal(index)}
-      className="flex flex-col justify-center items-center cursor-pointer bg-[#FFFBEE] p-4 md:min-h-[100px] md:max-h-[120px] min-h-[70px]"
+      className="flex flex-col justify-center items-center cursor-pointer bg-[#fef5dc] hover:bg-[#fff0c4] p-4 md:min-h-[100px] md:max-h-[120px] min-h-[70px] "
       style={useBorder({
         borderWidth: "1.2px",
         borderColor: "#E3801C",
@@ -127,7 +127,7 @@ function ProjectTile({
         borderSpacing: "31px",
       })}
     >
-      <span className="kode-mono-bold text-sm md:text-base leading-4 lg:text-lg lg:leading-4 text-[#DB874B] ">
+      <span className="kode-mono-bold text-sm md:text-base leading-4 lg:text-lg lg:leading-4 text-[#DB874B]">
         {name}
       </span>
       {subtext && (

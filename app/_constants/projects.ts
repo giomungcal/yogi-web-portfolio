@@ -51,7 +51,7 @@ export const PROJECTS: ProjectItem[] = [
     github: true,
     description:
       "A clone of Pinterest built with React & NextJS, mimicking its design and core functionality. This is a relatively huge project aimed to apply every React concept I've learned so far. All built from scratch. ",
-    images: ["https://i.imgur.com/mzBXo3v.gif"],
+    images: ["https://i.imgur.com/xBd4EZZ.gif"],
     websiteLink: "https://pinterest-clone-yogi.vercel.app/",
     githubLink: "https://github.com/giomungcal/pinterest-clone-yogi",
   },
@@ -77,10 +77,7 @@ export const PROJECTS: ProjectItem[] = [
     github: true,
     description:
       "A collection of projects I've created to really learn coding with Javascript/React - with a design oriented approach. These include a revision of my portfolio (2020), the classic to-do app, a calculator, weather app, and more..",
-    images: [
-      "https://via.placeholder.com/300x300",
-      "https://via.placeholder.com/400x250",
-    ],
+    images: ["https://i.imgur.com/hYavWs7.gif"],
     websiteLink: null,
     githubLink: "https://github.com/giomungcal/refresher-personal-projects",
   },
@@ -93,13 +90,8 @@ export const PROJECTS: ProjectItem[] = [
     website: false,
     github: true,
     description:
-      "An adventure-based, interactive mobile quiz game that aims to assess the player's knowledge in the fundamentals of electronics related subjects. Includes 5 game modes: Multiple Choice, True or False, Guess the Symbol,  Identify the Resistance, and Word Translation (Filipino-English).",
-    images: [
-      "https://via.placeholder.com/300x400",
-      "https://via.placeholder.com/500x300",
-      "https://via.placeholder.com/350x350",
-      "https://via.placeholder.com/450x150",
-    ],
+      "role: front end, ui/ux, and animations. This was a school project we made for our OOP subject in college. An adventure-based, interactive mobile quiz game that aims to assess the player's knowledge in the fundamentals of electronics related subjects.",
+    images: ["https://i.imgur.com/70eQhv1.png"],
     websiteLink: null,
     githubLink: "https://github.com/giomungcal/electro-knight",
   },
@@ -111,7 +103,7 @@ export const PROJECTS: ProjectItem[] = [
     website: true,
     github: true,
     description:
-      "The previous iterations of my portfolio I've made back in 2020. Not my proudest feat but its good to look back at where i started ♡",
+      "The previous iterations of my portfolio that I've made back in 2020. Not my proudest feat but its good to look back at where i started ♡",
     images: [
       "https://i.imgur.com/jIotgCw.gif",
       "https://i.imgur.com/j694ppa.gif",
@@ -127,7 +119,7 @@ export const PROJECTS: ProjectItem[] = [
     website: true,
     github: false,
     description:
-      "A set of Figma designs demonstrating creative user interfaces and UX principles. See more on my Behance profile on the link.",
+      "A set of adobe xd & figma designs demonstrating creative user interfaces and UX principles. See more on my behance profile on the link below.",
     images: [
       "https://i.imgur.com/1LE2DiB.gif",
       "https://i.imgur.com/YT7VGSv.png",
@@ -146,8 +138,12 @@ export const PROJECTS: ProjectItem[] = [
     website: false,
     github: true,
     description:
-      "A variety of projects developed during my time in school, focusing on web development and design.",
-    images: ["https://i.imgur.com/JvBHkZQ.png"],
+      "A variety of projects developed during my time in school, focusing on web development and design. Lost the other ones — github wasn't it back then yet ㋡",
+    images: [
+      "https://i.imgur.com/CQaqZ27.png",
+      "https://i.imgur.com/YihKsg7.png",
+      "https://i.imgur.com/q4aCuCj.png",
+    ],
     websiteLink: null,
     githubLink: "https://github.com/giomungcal/cedula",
   },
