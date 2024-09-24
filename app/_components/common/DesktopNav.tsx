@@ -93,7 +93,7 @@ function DesktopNavButton({ href, name, index }: DesktopNavButtonProps) {
   const NAV_TRANSITIONS = [
     "group-hover:translate-x-[135px] ",
     "group-hover:translate-x-[265px] group-hover:-rotate-12 ",
-    "group-hover:translate-x-[394px] ",
+    "group-hover:translate-x-[394px] mt-2 -rotate-6",
     "group-hover:translate-x-[75px] group-hover:translate-y-[110px] ",
   ];
 
