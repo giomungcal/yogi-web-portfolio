@@ -1,13 +1,21 @@
 "use client";
 
 import { useNavContext } from "@/app/_context/AppContext";
+import { twMerge } from "tailwind-merge";
 
-export function MobileNavTrigger() {
+type Props = {
+  className?: string;
+};
+
+export function MobileNavTrigger({ className }: Props) {
   const { setIsVisible } = useNavContext();
 
   return (
     <div
-      className={`flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold `}
+      className={twMerge(
+        `flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold`,
+        className
+      )}
     >
       <button
         onClick={() => {
