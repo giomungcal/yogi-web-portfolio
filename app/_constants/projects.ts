@@ -138,7 +138,7 @@ export const PROJECTS: ProjectItem[] = [
     website: false,
     github: true,
     description:
-      "A variety of projects developed during my time in school, focusing on web development and design. Lost the other ones — github wasn't it back then yet ㋡",
+      "Projects we developed during my time in school, focusing on web development and design. Lost the other ones — github wasn't it back then yet ㋡",
     images: [
       "https://i.imgur.com/CQaqZ27.png",
       "https://i.imgur.com/YihKsg7.png",

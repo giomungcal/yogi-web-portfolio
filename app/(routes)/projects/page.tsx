@@ -51,7 +51,7 @@ export default function Projects() {
           <div className="flex flex-col justify-center md:items-start">
             <LandingTitle />
             <MobileNavTrigger />
-            <section className="md:h-full md:w-full grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-3 md:gap-2 lg:gap-3 md:pb-4 md:pr-4 md:pt-3 lg:pt-0 mx-8 md:mx-auto my-8 md:my-0 z-50">
+            <section className="md:h-full md:w-full grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-3 md:gap-2 lg:gap-3 md:pb-4 md:pr-4 md:pt-3 lg:pt-0 mx-8 md:mx-auto my-8 md:my-0 z-[1]">
               {PROJECTS.map(({ id, name, subtext }, index) => (
                 <ProjectTile
                   key={id}

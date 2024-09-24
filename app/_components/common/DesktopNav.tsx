@@ -48,7 +48,7 @@ function DesktopHomeCTAButton({ isHovered }: DesktopHomeCTAButtonProps) {
       onClick={(e) => {
         e.preventDefault();
       }}
-      className="cursor-pointer absolute group-hover:rotate-[15deg] transition-all z-50"
+      className="cursor-pointer absolute rotate-3 -mt-1 group-hover:rotate-[15deg] transition-all z-50"
     >
       <motion.img
         animate={{ y: isHovered ? 0 : [0, -15, 0, -15, 0] }}
@@ -94,6 +94,7 @@ function DesktopNavButton({ href, name, index }: DesktopNavButtonProps) {
     "group-hover:translate-x-[135px] ",
     "group-hover:translate-x-[265px] group-hover:-rotate-12 ",
     "group-hover:translate-x-[394px] ",
+    "group-hover:translate-x-[75px] group-hover:translate-y-[110px] ",
   ];
 
   let zIndexHierarchy = 0;
@@ -112,7 +113,7 @@ function DesktopNavButton({ href, name, index }: DesktopNavButtonProps) {
         e.preventDefault();
         !isTheButtonTheCurrentPage
           ? navigateTo(href)
-          : toast(`this is the ${name} page!`, { icon: "🦋" });
+          : toast(`this is the ${name} page! ✬`);
       }}
       className={`cursor-pointer absolute hover:scale-110 transition-all ${
         NAV_TRANSITIONS[index - 1]

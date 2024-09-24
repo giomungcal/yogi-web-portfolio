@@ -17,7 +17,7 @@ export default function MyPath() {
         </div>
         <MobileNavTrigger className="w-full" />
         <SBRBanner />
-        <section className="flex flex-col justify-between h-full md:w-[43%] text-xs md:text-[10.5px] lg:text-[11px] kode-mono-light text-right">
+        <section className="flex flex-col justify-between h-full md:w-[43%] text-xs md:text-[10.5px] lg:text-[11px] kode-mono-light md:text-right text-left">
           <SchoolSection />
           <WorkSection />
         </section>
@@ -60,7 +60,7 @@ function SBRBanner() {
 
 function SchoolSection() {
   return (
-    <div className="flex flex-col justify-end items-end w-full">
+    <div className="flex flex-col justify-end md:items-end items-start w-full">
       <h2 className="text-6xl xs:text-7xl danfo-comb text-[#3b1b38] mb-1 md:mb-0 lg:mb-1">
         school
       </h2>
@@ -72,14 +72,17 @@ function SchoolSection() {
       <h3 className="jetbrains-mono-extrabold text-xs">
         pamantasan ng lungsod ng maynila
       </h3>
-      <p>college, 2015-2020</p>
+      <p>
+        <span className="kode-mono-bold">bs computer engineering</span>,
+        2015-2020
+      </p>
     </div>
   );
 }
 
 function WorkSection() {
   return (
-    <div className="flex flex-col justify-end items-end kode-mono-regular w-full mt-4 md:mt-0 ">
+    <div className="flex flex-col justify-end md:items-end items-start kode-mono-regular w-full mt-4 md:mt-0 ">
       <h2 className="text-6xl xs:text-7xl danfo-comb text-[#3b1b38] mb-1 md:mb-0 lg:mb-1">
         work
       </h2>
@@ -88,11 +91,13 @@ function WorkSection() {
         however..{" "}
       </p>
       <h3 className="jetbrains-mono-extrabold text-lg -mb-1">citi</h3>
-      <p className="kode-mono-regular text-xs">2020 - 2024</p>
+      <p className="kode-mono-bold text-xs">
+        <span className="text-[13px]">mainframe analyst</span> (2020 - 2024)
+      </p>
       <p>
         ..right after graduating, i accepted an offer from citi and began
-        working as a mainframe administrator. in 2023, i was promoted to an
-        assistant manager position. despite having a great job, after much
+        working as a mainframe analyst. in 2023, i was promoted to an assistant
+        manager position. despite having a great job for 4 years, after much
         consideration, i decided in 2024 to return to my roots and pursue
         development again.
       </p>
