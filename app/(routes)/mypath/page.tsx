@@ -30,7 +30,7 @@ export default function MyPath() {
 function LandingTitle() {
   return (
     <div className="relative">
-      <h1 className="text-[#470842] md:text-6xl text-8xl danfo-regular leading-[4.5rem] md:leading-[3rem] my-2">
+      <h1 className="text-[#470842] md:text-6xl text-8xl danfo-regular leading-[4.5rem] md:leading-[3rem] my-2 md:my-0">
         MY
         <br />
         PATH
@@ -61,21 +61,27 @@ function SBRBanner() {
 function SchoolSection() {
   return (
     <div className="flex flex-col justify-end md:items-end items-start w-full">
-      <h2 className="text-6xl xs:text-7xl danfo-comb text-[#3b1b38] mb-1 md:mb-0 lg:mb-1">
+      <h2 className="text-6xl xs:text-7xl danfo-comb text-[#3b1b38] mb-1 md:mb-0 lg:mb-1 -mt-1">
         school
       </h2>
-      <h3 className="jetbrains-mono-extrabold text-xs">
-        st. paul college, san rafael
-      </h3>
-      <p>high school, 2011-2015</p>
+      <div className="flex flex-col gap-y-2">
+        <div>
+          <h3 className="jetbrains-mono-extrabold text-xs">
+            st. paul college, san rafael
+          </h3>
+          <p>high school, 2011-2015</p>
+        </div>
 
-      <h3 className="jetbrains-mono-extrabold text-xs">
-        pamantasan ng lungsod ng maynila
-      </h3>
-      <p>
-        <span className="kode-mono-bold">bs computer engineering</span>,
-        2015-2020
-      </p>
+        <div>
+          <h3 className="jetbrains-mono-extrabold text-xs">
+            pamantasan ng lungsod ng maynila
+          </h3>
+          <p>
+            <span className="kode-mono-bold">bs computer engineering</span>,
+            2015-2020
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -5,9 +5,6 @@
 :root {
   --background: #f5d1ed;
   --foreground: #292929;
-
-  /* Border Colors */
-  --light-purple: #c286b9;
 }
 
 /* @media (prefers-color-scheme: dark) {

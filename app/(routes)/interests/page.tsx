@@ -23,7 +23,7 @@ export default function Interests() {
             width: "100%",
             height: "210px",
           }}
-          src="https://www.youtube.com/embed/MS8XOyCIpIE?si=0vwAK064yaSgr8nz"
+          src="https://www.youtube.com/embed/4GYHbqslFL4?si=X3TygJ8KdWLlfCeM"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -36,25 +36,25 @@ export default function Interests() {
       title: "drag & fashion",
       content:
         "i'm a hugeeee fan of everything drag/fashion related. earlier this year, i developed a passion for fashion designing and decided to start studying at a local fashion school on weekends. however, i paused my studies to focus on learning coding.",
-      media: "/assets/images/gio-banner.png",
+      media: "/assets/images/drag-fashion-banner.png",
     },
     {
       title: "gaming",
       content:
-        "i’m a big console gamer, having owned a psp in my teen years, a ps4 and recently a ps5. i have played games ranging from chill ones like harvest moon, stardew valley to challenging games like monster hunter, to extreme ones like bloodborne, sekiro, elden ring, and recently black myth wukong.",
-      media: "/assets/images/gio-banner.png",
+        "i'm a big console gamer, having owned a psp in my teen years, a ps4, and recently a ps5. i've played a wide range of games, from chill ones like harvest moon and stardew valley to challenging games like monster hunter and final fantasy, as well as extreme titles like bloodborne, sekiro, elden ring.",
+      media: "/assets/images/gaming.png",
     },
     {
       title: "badminton",
       content:
         "a sport that i recently picked up, found that i really enjoyed it and now it's been one of my go to hobbies. kinda regret not starting to play it at an earlier age though.",
-      media: "/assets/images/gio-banner.png",
+      media: "/assets/images/badminton.png",
     },
   ];
 
   return (
     <Wrapper borderColor="gold" className="md:h-auto min-h-450px md:my-[20vh]">
-      <main className="w-full h-full flex flex-col py-12 md:py-0">
+      <main className="w-full h-full flex flex-col py-12 md:py-0 justify-center items-center">
         <section className="flex w-full justify-around items-center">
           <header className="hidden md:flex w-[25%]  justify-center md:mt-6">
             <DesktopNav />
@@ -86,7 +86,7 @@ export default function Interests() {
                 {typeof Media === "string" ? (
                   <img
                     className={twMerge(
-                      "w-[50%]",
+                      "w-[55%]",
                       index % 2 === 1 && "md:order-2"
                     )}
                     src={Media}
@@ -120,6 +120,13 @@ export default function Interests() {
               transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
             />
           </div>
+        </div>
+        <div className="w-[80%] kode-mono-bold text-base lg:text-2xl flex justify-center my-12">
+          <h2 className="text-center">
+            ..oh and i love{" "}
+            <span className="text-lg lg:text-4xl text-[#F5C95E]">jojo</span>, if
+            it wasn’t obvious.{" "}
+          </h2>
         </div>
         <MobileNotice />
       </main>
