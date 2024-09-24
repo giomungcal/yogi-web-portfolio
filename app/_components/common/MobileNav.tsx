@@ -3,6 +3,7 @@
 import { NAV_LINKS } from "@/app/_constants/links";
 import { useLoaderContext, useNavContext } from "@/app/_context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
 
 export function MobileNav() {
   const { navigateTo, pathname } = useLoaderContext();
@@ -45,6 +46,14 @@ export function MobileNav() {
       },
     },
   };
+
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isVisible]);
 
   return (
     <AnimatePresence>

@@ -41,6 +41,13 @@
   font-variation-settings: "ELSH" 71;
 }
 
+.kode-mono-light {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .kode-mono-regular {
   font-family: "Kode Mono", monospace;
   font-optical-sizing: auto;

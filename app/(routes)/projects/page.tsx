@@ -9,16 +9,9 @@ import Wrapper from "@/app/_components/layout/Wrapper";
 import { PROJECTS } from "@/app/_constants/projects";
 import useBorder from "@/app/_hooks/useBorder";
 import { AnimatePresence } from "framer-motion";
-
 import * as motion from "framer-motion/client";
-import {
-  ButtonHTMLAttributes,
-  ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { twMerge } from "tailwind-merge";
+import { useEffect, useState } from "react";
+
 export default function Projects() {
   const [activeProjectId, setActiveProjectId] = useState<number>(0);
   const [modalDisplayed, setIsModalDisplayed] = useState<boolean>(false);

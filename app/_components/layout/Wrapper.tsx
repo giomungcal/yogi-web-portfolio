@@ -19,7 +19,7 @@ function Wrapper({ children, borderColor, className }: Props) {
     lightblue: "#B2BFFF",
     lightpurple: "#C286B9",
     lightgreen: "#AEDCA0",
-    gray: "#C1CDCF",
+    gray: "#797A9A",
     gold: "#F5C95E",
     olive: "#CAD40F",
     teal: "#92C9BD",
@@ -42,12 +42,6 @@ function Wrapper({ children, borderColor, className }: Props) {
     >
       {children}
     </div>
-    // <div
-    //   style={borderStyleVar}
-    //   className={`w-[80%] min-h-[450px] bg-[#F8F8F8] md:p-4 drop-shadow-lg overflow-hidden md:overflow-visible my-16 sm:my-0`}
-    // >
-    //   {children}
-    // </div>
   );
 }
 
