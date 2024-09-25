@@ -5,6 +5,7 @@
 
 - designed in _**figma and adobe photoshop**_
 - made with _**next.js, typescript, tailwindcss, and framer motion**_
+- deployed with _**vercel**_
 
 ## development timeline:
 - **September 15-16**:
@@ -31,6 +32,7 @@
   - Finished My Path & Interests page
 - **September 25**:
   - Finalization and polishing of animations
+  - Vercel Deployment
 
 `i learned a looot from creating this project - all built from scratch !`
 
