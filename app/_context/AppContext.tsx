@@ -62,7 +62,7 @@ export function LoaderContextProvider({
     console.log("Page loading..");
 
     await useSleep(700);
-    router.push(target);
+    await router.push(target);
 
     await useSleep(700);
     // Loading is set to false on pathname change (see below useEffect)
