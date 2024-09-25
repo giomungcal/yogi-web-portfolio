@@ -4,7 +4,7 @@
 `think of this portfolio as a direct reflection of my personality! i'm really happy with how it turned out—hope you like it! ♡`
 
 - designed in _**figma and adobe photoshop**_
-- made with _**next.js, tailwindcss, and framer motion**_
+- made with _**next.js, typescript, tailwindcss, and framer motion**_
 
 ## development timeline:
 - **September 15-16**:
@@ -32,6 +32,6 @@
 - **September 25**:
   - Finalization and polishing of animations
 
-` all built from scratch `
+`i learned a looot from creating this project - all built from scratch !`
 
-i love jojo's bizarre adventures, you should read/watch it too ⭐
+_i love jojo's bizarre adventures, you should watch it ⭐_
