@@ -18,8 +18,8 @@ export const PROJECTS: ProjectItem[] = [
     name: "yogi's space",
     title: "yogi's space",
     techstack: [
-      "react",
       "nextjs",
+      "typescript",
       "tailwind",
       "framer motion",
       "figma",
