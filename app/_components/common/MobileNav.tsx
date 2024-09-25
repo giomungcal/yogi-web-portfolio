@@ -63,7 +63,7 @@ export function MobileNav() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className={`md:hidden fixed top-0 left-0 flex flex-col justify-center items-start h-screen w-full bg-[#E9F9C6] z-[50] danfo-regular text-xl p-8`}
+          className={`danfo-regular fixed left-0 top-0 z-[50] flex h-screen w-full flex-col items-start justify-center bg-[#E9F9C6] p-8 text-xl md:hidden`}
         >
           <motion.div
             variants={container}
@@ -80,7 +80,7 @@ export function MobileNav() {
                     setIsVisible(false);
                     pathname !== href && navigateTo(href);
                   }}
-                  className={`cursor-pointer flex justify-center items-center ${
+                  className={`flex cursor-pointer items-center justify-center ${
                     pathname === href ? "text-[#263e17]" : "text-[#456033]"
                   } text-5xl xs:text-6xl`}
                 >
@@ -96,7 +96,7 @@ export function MobileNav() {
                         repeat: Infinity,
                         repeatType: "loop",
                       }}
-                      className="w-10 ml-4"
+                      className="ml-4 w-10"
                       src="/assets/images/smiley.png"
                       alt="Smiley - Active Page"
                     />
@@ -109,7 +109,7 @@ export function MobileNav() {
             onClick={() => {
               setIsVisible(false);
             }}
-            className="overflow-hidden absolute flex top-8 right-8 justify-center items-center "
+            className="absolute right-8 top-8 flex items-center justify-center overflow-hidden"
           >
             <motion.a
               initial={{
@@ -124,7 +124,7 @@ export function MobileNav() {
                   delay: 0.3,
                 },
               }}
-              className="mx-auto text-3xl sm:text-4xl text-[#135D29] "
+              className="mx-auto text-3xl text-[#135D29] sm:text-4xl"
             >
               close
             </motion.a>

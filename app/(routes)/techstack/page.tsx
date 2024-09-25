@@ -15,73 +15,91 @@ import * as motion from "framer-motion/client";
 
 export default function TechStack() {
   return (
-    <div className="min-h-screen w-full flex justify-center items-center overflow-hidden">
+    <div className="flex min-h-screen w-full items-center justify-center overflow-hidden">
       <Wrapper borderColor="teal">
-        <main className="h-full w-full flex flex-col md:justify-between justify-center p-6">
+        <main className="flex h-full w-full flex-col justify-center p-6 md:justify-between">
           <div className="flex h-full flex-col md:flex-row">
-            <header className="h-full flex flex-col justify-between md:items-start">
-              <div className=" md:-mt-6 md:-ml-2">
+            <header className="flex h-full flex-col justify-between md:items-start">
+              <div className="md:-ml-2 md:-mt-6">
                 <DesktopNav />
               </div>
-              <section className="danfo-comb lg:leading-[4.5rem] xs:leading-[4rem] leading-[3rem] md:block flex justify-center items-center py-8 sm:py-6 md:py-0">
-                <h1 className="lg:text-[96px] xs:text-[80px] text-[60px] text-[#338DA1] text-center md:text-left ">
-                  TECH
-                  <br />
-                  STACK
-                  <span className="block md:hidden md:text-[60px] sm:text-[55px] text-[45px]  sm:leading-[4rem] xs:leading-[3.5rem] leading-[2.5rem] text-[#4B9297]">
-                    & OTHER SKILLS
-                  </span>
-                </h1>
-                <JojoButterflyStamp
-                  fileName="stamp3"
-                  className="hidden md:block z-10 w-[50px] md:w-[79px] absolute hover:scale-110 transition-all lg:ml-[203px] md:ml-[169px] mt-[-118px] "
-                />
-              </section>
+              <LandingTitle />
               <MobileNavTrigger />
             </header>
-            <section className="h-full w-full min-h-[306px] grid lg:grid-rows-3 grid-rows-4 xl:grid-cols-4 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 md:gap-2 lg:gap-3 md:pl-6 md:pb-6 p-4 md:p-0 z-[9]">
-              {TECH_STACK.map(({ title, Icon }, index) => (
-                <TooltipProvider key={index} delayDuration={0}>
-                  <Tooltip>
-                    <div
-                      key={index}
-                      className="flex flex-col justify-center items-center bg-[#E7D6E2]/30 md:min-h-0 min-h-[70px] group"
-                      style={useBorder({
-                        borderWidth: "1.2px",
-                        borderColor: "#D982C2",
-                        borderDash: "15px",
-                        borderSpacing: "25px",
-                      })}
-                    >
-                      <TooltipTrigger>
-                        <Icon
-                          className={`lg:h-[38px] lg:w-[38px] h-[32px] w-[32px] text-[#b85495] group-hover:text-[#dc299d] group-hover:scale-110 transition-all`}
-                        />
-                      </TooltipTrigger>
-                    </div>
-                    <TooltipContent className="hidden lg:block bg-[#21005D] text-sm px-4 py-2 rounded">
-                      <p className="text-white">{title}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              ))}
-            </section>
+            <StackSection />
           </div>
-          <div className="">
-            <h2 className="hidden md:block danfo-comb leading-[4rem] lg:text-[86px] md:text-[70px] text-[#4B9297] ">
+          <div>
+            <JosukeBanner />
+            <h2 className="danfo-comb hidden leading-[4rem] text-[#4B9297] md:block md:text-[70px] lg:text-[86px]">
               & OTHER SKILLS
             </h2>
-            <motion.img
-              src="/assets/images/josuke-banner.png"
-              alt="Josuke Banner"
-              className="hidden z-[1] absolute md:block lg:bottom-[-82px] md:bottom-[-59px] lg:right-[-230px] md:right-[-165px] lg:w-[462px] md:w-[360px]  "
-              whileHover={{ scale: [null, 1.06, 1.06] }}
-              transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
-            />
           </div>
           <MobileNotice />
         </main>
       </Wrapper>
     </div>
+  );
+}
+
+function LandingTitle() {
+  return (
+    <section className="danfo-comb flex items-center justify-center py-8 leading-[3rem] xs:leading-[4rem] sm:py-6 md:block md:py-0 lg:leading-[4.5rem]">
+      <h1 className="text-center text-[60px] text-[#338DA1] xs:text-[80px] md:text-left lg:text-[96px]">
+        TECH
+        <br />
+        STACK
+        <span className="block text-[45px] leading-[2.5rem] text-[#4B9297] xs:leading-[3.5rem] sm:text-[55px] sm:leading-[4rem] md:hidden md:text-[60px]">
+          & OTHER SKILLS
+        </span>
+      </h1>
+      <JojoButterflyStamp
+        fileName="stamp3"
+        className="absolute z-10 mt-[-118px] hidden w-[50px] transition-all hover:scale-110 md:ml-[169px] md:block md:w-[79px] lg:ml-[203px]"
+      />
+    </section>
+  );
+}
+
+function StackSection() {
+  return (
+    <section className="z-[9] grid h-full min-h-[306px] w-full grid-cols-2 grid-rows-4 gap-3 p-4 sm:grid-cols-3 md:gap-2 md:p-0 md:pb-6 md:pl-6 lg:grid-cols-4 lg:grid-rows-3 lg:gap-3 xl:grid-cols-4">
+      {TECH_STACK.map(({ title, Icon }, index) => (
+        <TooltipProvider key={index} delayDuration={0}>
+          <Tooltip>
+            <div
+              key={index}
+              className="group flex min-h-[70px] flex-col items-center justify-center bg-[#E7D6E2]/30 md:min-h-0"
+              style={useBorder({
+                borderWidth: "1.2px",
+                borderColor: "#D982C2",
+                borderDash: "15px",
+                borderSpacing: "25px",
+              })}
+            >
+              <TooltipTrigger>
+                <Icon
+                  className={`h-[32px] w-[32px] text-[#b85495] transition-all group-hover:scale-110 group-hover:text-[#dc299d] lg:h-[38px] lg:w-[38px]`}
+                />
+              </TooltipTrigger>
+            </div>
+            <TooltipContent className="hidden rounded bg-[#21005D] px-4 py-2 text-sm lg:block">
+              <p className="text-white">{title}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      ))}
+    </section>
+  );
+}
+
+function JosukeBanner() {
+  return (
+    <motion.img
+      src="/assets/images/josuke-banner.png"
+      alt="Josuke Banner"
+      className="absolute z-[1] hidden md:bottom-[-59px] md:right-[-165px] md:block md:w-[360px] lg:bottom-[-82px] lg:right-[-230px] lg:w-[462px]"
+      whileHover={{ scale: [null, 1.06, 1.06] }}
+      transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
+    />
   );
 }

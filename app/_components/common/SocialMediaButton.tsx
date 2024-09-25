@@ -7,7 +7,7 @@ type SocialMediaButtonProps = {
 function SocialMediaButton({ name, link, img }: SocialMediaButtonProps) {
   return (
     <a href={link} target="_blank" rel="noopener noreferrer">
-      <img src={img} alt={name} className="hover:scale-110 transition-all" />
+      <img src={img} alt={name} className="transition-all hover:scale-110" />
     </a>
   );
 }

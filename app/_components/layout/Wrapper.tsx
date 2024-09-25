@@ -36,8 +36,8 @@ function Wrapper({ children, borderColor, className }: Props) {
     <div
       style={borderStyleVar}
       className={twMerge(
-        `w-[80%] md:min-w-[700px] lg:max-w-[864px] md:h-[450px] bg-[#F8F8F8] md:p-4 drop-shadow-lg overflow-hidden md:overflow-visible my-16 md:my-0`,
-        className
+        `my-16 w-[80%] overflow-hidden bg-[#F8F8F8] drop-shadow-lg md:my-0 md:h-[450px] md:min-w-[700px] md:overflow-visible md:p-4 lg:max-w-[864px]`,
+        className,
       )}
     >
       {children}

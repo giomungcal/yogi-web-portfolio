@@ -13,15 +13,15 @@ export function MobileNavTrigger({ className }: Props) {
   return (
     <div
       className={twMerge(
-        `flex w-full md:hidden gap-6 justify-center kode-mono-bold text-sm sm:text-lg font-semibold`,
-        className
+        `kode-mono-bold flex w-full justify-center gap-6 text-sm font-semibold sm:text-lg md:hidden`,
+        className,
       )}
     >
       <button
         onClick={() => {
           setIsVisible(true);
         }}
-        className="w-[140px] sm:w-[190px] h-[38px] bg-[#EDCFFF] border-2 border-black text-xl flex justify-center items-center select-none"
+        className="flex h-[38px] w-[140px] select-none items-center justify-center border-2 border-black bg-[#EDCFFF] text-xl sm:w-[190px]"
       >
         <span>NAVIGATE</span>
       </button>

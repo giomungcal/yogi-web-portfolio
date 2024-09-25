@@ -45,7 +45,7 @@ const InitialLoader = ({}): React.ReactNode => {
           }}
           exit={{ y: "-100%" }}
           transition={{ duration: 1, ease: [0.455, 0.03, 0.515, 0.955] }}
-          className="fixed top-0 inset-0 h-screen z-[50] overflow-hidden"
+          className="fixed inset-0 top-0 z-[50] h-screen overflow-hidden"
         >
           <div
             style={useBorder({
@@ -54,9 +54,9 @@ const InitialLoader = ({}): React.ReactNode => {
               borderDash: "26px",
               borderSpacing: "52px",
             })}
-            className="w-full h-[100%] bg-[#B2BFFF] absolute top-0 z-[60]  flex flex-col justify-end"
+            className="absolute top-0 z-[60] flex h-[100%] w-full flex-col justify-end bg-[#B2BFFF]"
           >
-            <motion.div className="danfo-regular md:text-[90px] lg:text-[100px] hidden md:block ml-12 mb-12">
+            <motion.div className="danfo-regular mb-12 ml-12 hidden md:block md:text-[90px] lg:text-[100px]">
               <motion.span
                 variants={container}
                 initial="initial"
@@ -93,7 +93,7 @@ const InitialLoader = ({}): React.ReactNode => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className="w-[100px] absolute right-14 bottom-14"
+              className="absolute bottom-14 right-14 w-[70px] md:w-[100px]"
               src="/assets/images/smiley.png"
               alt="Smiley"
             />

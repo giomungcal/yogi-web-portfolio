@@ -11,13 +11,13 @@ export default function Home() {
   return (
     <Wrapper borderColor={"lightpurple"}>
       <YogiBanner />
-      <main className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden py-8 md:py-0 md:pr-10">
+      <main className="flex h-full w-full flex-col py-8 md:grid md:grid-cols-3 md:grid-rows-2 md:overflow-hidden md:py-0 md:pr-10">
         <DesktopNav className="ml-8" />
         <MailStamp />
         <LandingTitle />
         <MobileNavTrigger />
         <EmptyFillerDiv />
-        <section className="md:col-span-2 flex flex-col md:items-end items-center my-6 md:my-0 md:pt-10 gap-3">
+        <section className="my-6 flex flex-col items-center gap-3 md:col-span-2 md:my-0 md:items-end md:pt-10">
           <LandingBio />
           <Footer />
         </section>
@@ -31,19 +31,19 @@ export default function Home() {
 
 function LandingTitle() {
   return (
-    <div className="relative flex flex-col justify-center items-center md:items-end md:justify-end pt-4 md:pt-0 md:mt-4 md:pl-2 select-none">
+    <div className="relative flex select-none flex-col items-center justify-center pt-4 md:mt-4 md:items-end md:justify-end md:pl-2 md:pt-0">
       <JojoButterflyStamp
         fileName="stamp1"
-        className="z-10 w-[50px] md:w-[79px] absolute md:mr-[-25px] top-[55px] md:top-[30px] rotate-12 hover:scale-110 transition-all ml-52 md:ml-0"
+        className="absolute top-[55px] z-10 ml-52 w-[50px] rotate-12 transition-all hover:scale-110 md:top-[30px] md:ml-0 md:mr-[-25px] md:w-[79px]"
       />
       <JojoButterflyStamp
         fileName="stamp2"
-        className="z-10 w-[50px] md:w-[70px] absolute md:bottom-[-53px] -rotate-12 hover:scale-110 transition-all mr-56 md:mr-48 mt-36 md:mt-0"
+        className="absolute z-10 mr-56 mt-36 w-[50px] -rotate-12 transition-all hover:scale-110 md:bottom-[-53px] md:mr-48 md:mt-0 md:w-[70px]"
       />
-      <h2 className="md:absolute text-blue danfo-regular md:top-[6px] md:text-[80px] text-7xl leading-normal overflow-hidden">
+      <h2 className="danfo-regular overflow-hidden text-7xl leading-normal text-blue md:absolute md:top-[6px] md:text-[80px]">
         HI,I'M
       </h2>
-      <h1 className="md:absolute  -mt-20 -mb-4 md:mt-0  text-[#4B7EEB] text-[140px] danfo-claw md:top-[42px] ">
+      <h1 className="danfo-claw -mb-4 -mt-20 text-[140px] text-[#4B7EEB] md:absolute md:top-[42px] md:mt-0">
         GIO
       </h1>
     </div>
@@ -52,8 +52,8 @@ function LandingTitle() {
 
 function YogiBanner() {
   return (
-    <div className="hidden md:flex z-10 w-[290px] h-[34px] items-center justify-center bg-[#B2BFFF] absolute -right-24 top-4 rotate-[42deg] border-black border-[2px] overflow-hidden">
-      <p className="text-[#FFF6F2] roboto-flex text-2xl flex flex-shrink-0">
+    <div className="absolute -right-24 top-4 z-10 hidden h-[34px] w-[290px] rotate-[42deg] items-center justify-center overflow-hidden border-[2px] border-black bg-[#B2BFFF] md:flex">
+      <p className="roboto-flex flex flex-shrink-0 text-2xl text-[#FFF6F2]">
         YOGI ✰ YOGI ✰ YOGI ✰
       </p>
     </div>
@@ -68,7 +68,7 @@ function MailStamp() {
         alt="Mail Stamp"
         width={180}
         height={97}
-        className="right-0 bottom-0 translate-x-6 lg:translate-x-14 translate-y-8 scale-100 lg:scale-110"
+        className="bottom-0 right-0 translate-x-6 translate-y-8 scale-100 lg:translate-x-14 lg:scale-110"
       />
     </div>
   );
@@ -76,7 +76,7 @@ function MailStamp() {
 
 function LandingBio() {
   return (
-    <p className="kode-mono-regular text-center md:text-right text-[13px] md:text-[11.5px] lg:text-[13px] md:max-w-[250px] lg:max-w-[360px] px-12 md:px-0 lg:leading-5">
+    <p className="kode-mono-regular px-12 text-center text-[13px] md:max-w-[250px] md:px-0 md:text-right md:text-[11.5px] lg:max-w-[360px] lg:text-[13px] lg:leading-5">
       a <span className="kode-mono-bold">front-end developer</span> shifting
       from a career in information security upon realizing where my passion
       really lies. after 4 years, i’ve decided to dive back into web development
@@ -90,7 +90,7 @@ function JohnnyBanner() {
     <motion.img
       src="/assets/images/johnny-banner.png"
       alt="Johnny Banner"
-      className="hidden md:block absolute bottom-0 lg:w-[350px] md:w-[300px] lg:top-[5px] md:top-[90px] lg:left-[-158px] md:left-[-98px]"
+      className="absolute bottom-0 hidden md:left-[-98px] md:top-[90px] md:block md:w-[300px] lg:left-[-158px] lg:top-[5px] lg:w-[350px]"
       whileHover={{ scale: [null, 1.08] }}
       transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
     />
@@ -102,7 +102,7 @@ function GioBanner() {
     <motion.img
       src="/assets/images/gio-banner.png"
       alt="Gio banner"
-      className="hidden md:block absolute bottom-0 lg:w-[368px] md:w-[330px] lg:top-[118px] top-[138px] left-[100px] "
+      className="absolute bottom-0 left-[100px] top-[138px] hidden md:block md:w-[330px] lg:top-[118px] lg:w-[368px]"
       whileHover={{ scale: [null, 1.08] }}
       transition={{ duration: 0.3, ease: [0.6, 0.01, -0.05, 0.95] }}
     />

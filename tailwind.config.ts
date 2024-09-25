@@ -58,10 +58,6 @@ const config: Config = {
           "5": "hsl(var(--chart-5))",
         },
       },
-      fontSize: {
-        "custom-hi": "4.875rem",
-        "custom-gio": "8.75rem",
-      },
       screens: {
         xs: "475px",
       },

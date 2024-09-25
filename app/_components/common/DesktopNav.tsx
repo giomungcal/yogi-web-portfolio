@@ -18,7 +18,7 @@ export default function DesktopNav({ className }: Props) {
     <nav
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`hidden md:block w-[150px] h-[150px] z-[50] ${className} group`}
+      className={`z-[50] hidden h-[150px] w-[150px] md:block ${className} group`}
     >
       {pathname === "/" ? (
         <DesktopHomeCTAButton isHovered={isHovered} />
@@ -34,7 +34,7 @@ export default function DesktopNav({ className }: Props) {
               name={name}
               index={index}
             />
-          )
+          ),
       )}
     </nav>
   );
@@ -48,7 +48,7 @@ function DesktopHomeCTAButton({ isHovered }: DesktopHomeCTAButtonProps) {
       onClick={(e) => {
         e.preventDefault();
       }}
-      className="cursor-pointer absolute rotate-3 -mt-1 group-hover:rotate-[15deg] transition-all z-50"
+      className="absolute z-50 -mt-1 rotate-3 cursor-pointer transition-all group-hover:rotate-[15deg]"
     >
       <motion.img
         animate={{ y: isHovered ? 0 : [0, -15, 0, -15, 0] }}
@@ -74,7 +74,7 @@ function DesktopHomeNavButton() {
         e.preventDefault();
         navigateTo("/");
       }}
-      className="cursor-pointer absolute rotate-[6deg] mt-[-2.5px] group-hover:rotate-12 hover:scale-110 transition-all"
+      className="absolute mt-[-2.5px] rotate-[6deg] cursor-pointer transition-all hover:scale-110 group-hover:rotate-12"
     >
       <img src="/assets/images/home-stamp.png" alt="HoverButton" />
     </a>
@@ -94,7 +94,7 @@ function DesktopNavButton({ href, name, index }: DesktopNavButtonProps) {
     "group-hover:translate-x-[135px] ",
     "group-hover:translate-x-[265px] group-hover:-rotate-12 ",
     "group-hover:translate-x-[394px] mt-2 -rotate-6",
-    "group-hover:translate-x-[75px] group-hover:translate-y-[110px] ",
+    "group-hover:translate-x-[524px] group-hover:-rotate-12 ",
   ];
 
   let zIndexHierarchy = 0;
@@ -115,7 +115,7 @@ function DesktopNavButton({ href, name, index }: DesktopNavButtonProps) {
           ? navigateTo(href)
           : toast(`this is the ${name} page! ✬`);
       }}
-      className={`cursor-pointer absolute hover:scale-110 transition-all ${
+      className={`absolute cursor-pointer transition-all hover:scale-110 ${
         NAV_TRANSITIONS[index - 1]
       }`}
       style={{ zIndex: zIndexHierarchy }}

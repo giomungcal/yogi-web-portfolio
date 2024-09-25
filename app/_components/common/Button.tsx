@@ -10,8 +10,8 @@ export default function Button({ children, className, ...props }: ButtonProps) {
   return (
     <button
       className={twMerge(
-        " jetbrains-mono-extrabold bg-[#DCF615] border-2 border-black h-10 px-4 hover:px-5 select-none transition-all",
-        className
+        "jetbrains-mono-extrabold h-10 select-none border-2 border-black bg-[#DCF615] px-4 transition-all hover:px-5",
+        className,
       )}
       {...props}
     >

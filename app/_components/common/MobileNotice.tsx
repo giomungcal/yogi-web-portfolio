@@ -8,8 +8,8 @@ export default function MobileNotice({ className }: MobileNoticeProps) {
   return (
     <p
       className={twMerge(
-        "block md:hidden text-center text-[12px] italic opacity-50 px-8",
-        className
+        "block px-8 text-center text-[12px] italic opacity-50 md:hidden",
+        className,
       )}
     >
       note: use desktop for a better experience

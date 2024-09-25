@@ -102,7 +102,7 @@ export function useLoaderContext() {
   const context = useContext(LoaderContext);
   if (!context) {
     throw new Error(
-      "useLoaderContext must be used within a LoaderContextProvider"
+      "useLoaderContext must be used within a LoaderContextProvider",
     );
   }
   return context;

@@ -9,13 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import {
-  AnimatePresence,
-  AnimationScope,
-  motion,
-  useAnimate,
-  usePresence,
-} from "framer-motion";
+import { AnimatePresence, motion, useAnimate } from "framer-motion";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { FiGithub } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
@@ -38,7 +32,7 @@ export default function ProjectsModal({
   const [imgLoading, setImgLoading] = useState(true);
   const [modalScope, modalAnimate] = useAnimate();
   const [imgSrc, setImgSrc] = useState(
-    PROJECTS[activeProjectId].images[activeImg]
+    PROJECTS[activeProjectId].images[activeImg],
   );
 
   async function handleNextProject() {
@@ -49,17 +43,17 @@ export default function ProjectsModal({
     await modalAnimate(
       modalScope.current,
       { y: "100vh" },
-      { ease: [0.25, 0.8, 0.5, 1] }
+      { ease: [0.25, 0.8, 0.5, 1] },
     );
 
     await setActiveProjectId((prev: number) =>
-      prev !== null ? (PROJECTS.length - 1 === prev ? 0 : prev + 1) : 0
+      prev !== null ? (PROJECTS.length - 1 === prev ? 0 : prev + 1) : 0,
     );
 
     await modalAnimate(
       modalScope.current,
       { y: "0%" },
-      { ease: [0.25, 0.8, 0.5, 1] }
+      { ease: [0.25, 0.8, 0.5, 1] },
     );
   }
 
@@ -69,15 +63,15 @@ export default function ProjectsModal({
     await modalAnimate(
       modalScope.current,
       { y: "100vh" },
-      { ease: [0.25, 0.8, 0.5, 1] }
+      { ease: [0.25, 0.8, 0.5, 1] },
     );
     await setActiveProjectId((prev: number) =>
-      prev !== null ? (prev === 0 ? PROJECTS.length - 1 : prev - 1) : 0
+      prev !== null ? (prev === 0 ? PROJECTS.length - 1 : prev - 1) : 0,
     );
     await modalAnimate(
       modalScope.current,
       { y: "0%" },
-      { ease: [0.25, 0.8, 0.5, 1] }
+      { ease: [0.25, 0.8, 0.5, 1] },
     );
   }
 
@@ -116,7 +110,7 @@ export default function ProjectsModal({
         display: "none",
         transition: { ease: [0.25, 0.8, 0.5, 1], duration: 0.4 },
       }}
-      className="fixed top-0 bottom-0 left-0 right-0 h-screen transition-all flex justify-center items-center bg-black/20"
+      className="fixed bottom-0 left-0 right-0 top-0 flex h-screen items-center justify-center bg-black/20 transition-all"
       onClick={handleCloseModal}
     >
       <motion.div
@@ -130,7 +124,7 @@ export default function ProjectsModal({
           x: "calc(100vw + 50%)",
           transition: { ease: [0.25, 0.8, 0.5, 1], duration: 0.6 },
         }}
-        className="w-[80%] max-h-[90%] md:h-[450px] md:min-w-[700px] lg:max-w-[1100px] bg-[#F8F8F8] drop-shadow-lg custom-scrollbar overflow-auto"
+        className="custom-scrollbar max-h-[90%] w-[80%] overflow-auto bg-[#F8F8F8] drop-shadow-lg md:h-[450px] md:min-w-[700px] lg:max-w-[1100px]"
       >
         <div
           onClick={(e) => e.stopPropagation()}
@@ -140,12 +134,12 @@ export default function ProjectsModal({
             borderDash: "26px",
             borderSpacing: "52px",
           })}
-          className="w-full h-full flex md:flex-row flex-col justify-between p-10 gap-x-6 custom-scrollbar overflow-hidden "
+          className="custom-scrollbar flex h-full w-full flex-col justify-between gap-x-6 overflow-hidden p-10 md:flex-row"
         >
-          <section className="relative md:w-[50%] lg:w-[60%] w-full min-h-[300px] max-h-[400px] overflow-hidden group">
+          <section className="group relative max-h-[400px] min-h-[300px] w-full overflow-hidden md:w-[50%] lg:w-[60%]">
             <AnimatePresence>
               {true && (
-                <div className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 flex justify-center items-center p-6">
+                <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center object-cover p-6 opacity-100">
                   <motion.img
                     animate={{
                       rotate: [0, 270, 0],
@@ -167,8 +161,8 @@ export default function ProjectsModal({
             <img
               ref={imgScope}
               className={twMerge(
-                "absolute inset-0 w-full h-full object-cover z-20 transition-all",
-                imgLoading ? "opacity-0" : "opacity-100"
+                "absolute inset-0 z-20 h-full w-full object-cover transition-all",
+                imgLoading ? "opacity-0" : "opacity-100",
               )}
               src={imgSrc}
               //   Image keeps on loading the previous src img, apparently it needed a key for it to be unique yay
@@ -200,7 +194,7 @@ export default function ProjectsModal({
               </>
             )}
           </section>
-          <section className="relative md:w-[50%] lg:w-[40%] h-full flex flex-col justify-between items-start">
+          <section className="relative flex h-full flex-col items-start justify-between md:w-[50%] lg:w-[40%]">
             <>
               <ModalContent activeProjectId={activeProjectId} />
               <ModalControls
@@ -223,14 +217,14 @@ type ModalProps = {
 
 function ModalContent({ activeProjectId }: ModalProps) {
   return (
-    <div className="w-full flex flex-col items-start gap-y-3 py-4 md:py-0">
-      <div className="w-[90%] flex justify-between">
-        <h2 className="danfo-regular text-4xl leading-[1.8rem] xs:text-5xl xs:leading-[2.4rem] sm:text-6xl sm:leading-[3rem] md:text-[3.8rem] lg:text-[4.1rem] text-[#95A331] md:leading-[3.5rem] ">
+    <div className="flex w-full flex-col items-start gap-y-3 py-4 md:py-0">
+      <div className="flex w-[90%] justify-between">
+        <h2 className="danfo-regular text-4xl leading-[1.8rem] text-[#95A331] xs:text-5xl xs:leading-[2.4rem] sm:text-6xl sm:leading-[3rem] md:text-[3.8rem] md:leading-[3.5rem] lg:text-[4.1rem]">
           {PROJECTS[activeProjectId].name}
         </h2>
       </div>
 
-      <h3 className="kode-mono-bold text-[13px] text-black/60 tracking-tight">
+      <h3 className="kode-mono-bold text-[13px] tracking-tight text-black/60">
         // made with{" "}
         {PROJECTS[activeProjectId].techstack.map((p, index) => {
           return PROJECTS[activeProjectId].techstack.length - 1 !== index
@@ -238,7 +232,7 @@ function ModalContent({ activeProjectId }: ModalProps) {
             : `${p}`;
         })}
       </h3>
-      <div className="overflow-auto min-h-12 max-h-32 custom-scrollbar">
+      <div className="custom-scrollbar max-h-32 min-h-12 overflow-auto">
         <p className="jetbrains-mono-medium text-xs">
           {PROJECTS[activeProjectId].description}
         </p>
@@ -260,7 +254,7 @@ function ModalControls({
   handleCloseModal,
 }: ModalControlProps) {
   return (
-    <div className="w-full flex sm:flex-row sm:justify-between items-end md:items-center flex-col gap-y-2 gap-x-2 md:text-sm lg:text-base">
+    <div className="flex w-full flex-col items-end gap-x-2 gap-y-2 sm:flex-row sm:justify-between md:items-center md:text-sm lg:text-base">
       <div className="flex gap-x-2">
         {PROJECTS[activeProjectId].website && (
           <TooltipProvider delayDuration={0}>
@@ -278,7 +272,7 @@ function ModalControls({
                   </a>
                 )}
               </TooltipTrigger>
-              <TooltipContent className=" bg-[#435934] text-sm px-4 py-2 rounded">
+              <TooltipContent className="rounded bg-[#435934] px-4 py-2 text-sm">
                 <p className="text-white">site</p>
               </TooltipContent>
             </Tooltip>
@@ -300,7 +294,7 @@ function ModalControls({
                   </a>
                 )}
               </TooltipTrigger>
-              <TooltipContent className="bg-[#435934] text-sm px-4 py-2 rounded">
+              <TooltipContent className="rounded bg-[#435934] px-4 py-2 text-sm">
                 <p className="text-white">github</p>
               </TooltipContent>
             </Tooltip>
@@ -308,17 +302,17 @@ function ModalControls({
         )}
       </div>
       <div className="flex gap-x-2">
-        <Button onClick={handleCloseModal} className="bg-[#e4c4b2] max-w-20">
+        <Button onClick={handleCloseModal} className="max-w-20 bg-[#e4c4b2]">
           <span className="text-yellow-900 tracking-tight">
             <IoMdClose />
           </span>
         </Button>
-        <Button onClick={handlePrevProject} className="bg-[#FAFF5F] max-w-20">
+        <Button onClick={handlePrevProject} className="max-w-20 bg-[#FAFF5F]">
           <span className="text-yellow-900 tracking-tight">
             <MdNavigateBefore />
           </span>
         </Button>
-        <Button onClick={handleNextProject} className="bg-[#FAFF5F] max-w-20">
+        <Button onClick={handleNextProject} className="max-w-20 bg-[#FAFF5F]">
           <span className="text-yellow-900 tracking-tight">
             <MdNavigateNext />
           </span>
