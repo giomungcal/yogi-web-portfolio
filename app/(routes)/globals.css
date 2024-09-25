@@ -116,10 +116,6 @@ body {
   }
 }
 
-.loading {
-  overflow: hidden;
-}
-
 .svg-white {
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg)
     brightness(200%) contrast(100%);

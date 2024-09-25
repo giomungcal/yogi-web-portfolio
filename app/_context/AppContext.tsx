@@ -55,17 +55,18 @@ export function LoaderContextProvider({
 
   const navigateTo = async (target: string) => {
     toast.dismiss();
-    document.body.classList.add("loading");
+
+    document.body.style.overflow = "hidden";
 
     setIsFakeLoading(true);
     console.log("Page loading..");
 
-    await useSleep(800);
+    await useSleep(700);
     router.push(target);
 
+    await useSleep(700);
     // Loading is set to false on pathname change (see below useEffect)
-
-    document.body.classList.remove("loading");
+    document.body.style.overflow = "";
   };
 
   // Only sets loading to false once pathname is changed.
