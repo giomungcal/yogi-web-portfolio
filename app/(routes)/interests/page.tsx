@@ -2,7 +2,7 @@ import DesktopNav from "@/app/_components/common/DesktopNav";
 import { MobileNavTrigger } from "@/app/_components/common/MobileNavTrigger";
 import MobileNotice from "@/app/_components/common/MobileNotice";
 import Wrapper from "@/app/_components/layout/Wrapper";
-import { INTERESTS } from "@/app/_constants/interests";
+import { INTERESTS } from "@/app/_constants/interest";
 import * as motion from "framer-motion/client";
 import { twMerge } from "tailwind-merge";
 
