@@ -15,6 +15,33 @@ type ProjectItem = {
 export const PROJECTS: ProjectItem[] = [
   {
     id: 1,
+    name: "lakbAI trip app",
+    title: "LakbAI trip app",
+    techstack: [
+      "nextjs",
+      "typescript",
+      "tailwindcss",
+      "shadcn",
+      "supabase",
+      "gemini AI",
+      "google places API",
+      "shadcn/ui",
+      "clerk auth",
+    ],
+    website: true,
+    github: true,
+    description:
+      "This is my latest project. Developed a fully functional web app from scratch that allow users to create, share, and collaborate on travel itineraries with their friends. Integrated Gemini AI to automate trip planning, providing users with personalized, AI-generated itineraries.",
+    images: [
+      "https://imgur.com/cOU6KFl.png",
+      "https://imgur.com/AU0aZBG.png",
+      "https://imgur.com/BVSWWxP.png",
+    ],
+    websiteLink: "https://lakbai-yogi.vercel.app/",
+    githubLink: "https://github.com/giomungcal/lakbai-app",
+  },
+  {
+    id: 2,
     name: "yogi's space",
     title: "yogi's space",
     techstack: [
@@ -37,7 +64,7 @@ export const PROJECTS: ProjectItem[] = [
     githubLink: "https://github.com/giomungcal/yogi-web-portfolio",
   },
   {
-    id: 2,
+    id: 3,
     name: "pinterest clone",
     title: "Pinterest Clone",
     techstack: [
@@ -56,7 +83,7 @@ export const PROJECTS: ProjectItem[] = [
     githubLink: "https://github.com/giomungcal/pinterest-clone-yogi",
   },
   {
-    id: 3,
+    id: 4,
     name: "wordle by yogi",
     title: "Wordle Game",
     techstack: ["react", "typescript", "tailwind", "responsive design"],
@@ -69,7 +96,7 @@ export const PROJECTS: ProjectItem[] = [
     githubLink: "https://github.com/giomungcal/wordle-yogi",
   },
   {
-    id: 4,
+    id: 5,
     name: "small projects",
     title: "Small Projects",
     techstack: ["html", "css", "javascript", "responsive design"],
@@ -82,7 +109,7 @@ export const PROJECTS: ProjectItem[] = [
     githubLink: "https://github.com/giomungcal/refresher-personal-projects",
   },
   {
-    id: 5,
+    id: 6,
     name: "electro knight",
     subtext: "mobile game",
     title: "ElectroKnight Mobile Game",
@@ -96,7 +123,7 @@ export const PROJECTS: ProjectItem[] = [
     githubLink: "https://github.com/giomungcal/electro-knight",
   },
   {
-    id: 6,
+    id: 7,
     name: "portfolio iteration",
     title: "Portfolio Iteration",
     techstack: ["html", "css", "react", "adobe xd", "responsive design"],
@@ -112,7 +139,7 @@ export const PROJECTS: ProjectItem[] = [
     githubLink: "https://github.com/giomungcal/gio-webportfolio",
   },
   {
-    id: 7,
+    id: 8,
     name: "UI designs",
     title: "Figma Designs",
     techstack: ["figma", "adobe xd", "photoshop"],
@@ -129,22 +156,5 @@ export const PROJECTS: ProjectItem[] = [
     ],
     websiteLink: "https://www.behance.net/giomungcal",
     githubLink: null,
-  },
-  {
-    id: 8,
-    name: "school projects",
-    title: "School Projects",
-    techstack: ["html", "css", "javascript"],
-    website: false,
-    github: true,
-    description:
-      "Projects we developed during my time in school, focusing on web development and design. Lost the other ones — github wasn't it back then yet ㋡",
-    images: [
-      "https://i.imgur.com/CQaqZ27.png",
-      "https://i.imgur.com/YihKsg7.png",
-      "https://i.imgur.com/q4aCuCj.png",
-    ],
-    websiteLink: null,
-    githubLink: "https://github.com/giomungcal/cedula",
   },
 ];
