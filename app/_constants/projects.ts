@@ -34,8 +34,8 @@ export const PROJECTS: ProjectItem[] = [
       "This is my latest project. Developed a fully functional web app from scratch that allow users to create, share, and collaborate on travel itineraries with their friends. Integrated Gemini AI to automate trip planning, providing users with personalized, AI-generated itineraries.",
     images: [
       "https://imgur.com/cOU6KFl.png",
-      "https://imgur.com/AU0aZBG.png",
-      "https://imgur.com/BVSWWxP.png",
+      "https://imgur.com/Tt5GJS0.gif",
+      "https://imgur.com/nYBDtRV.gif",
     ],
     websiteLink: "https://lakbai-yogi.vercel.app/",
     githubLink: "https://github.com/giomungcal/lakbai-app",
