@@ -1,7 +1,7 @@
 # yogi's space ✧˚ ⋆
 **my latest web portfolio - 2024**
 
-`think of this portfolio as a direct reflection of my personality and my passion for web development! i'm really happy with how it turned out—hope you like it! ♡`
+`think of this portfolio as a direct reflection of my personality and my (side) passion for web development! i'm really happy with how it turned out—hope you like it! ♡`
 
 - designed in _**figma and adobe photoshop**_
 - made with _**next.js, typescript, tailwindcss, and framer motion**_
