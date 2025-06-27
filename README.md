@@ -7,7 +7,7 @@
 - made with _**next.js, typescript, tailwindcss, and framer motion**_
 - deployed with _**vercel**_
 
-![alt text](https://imgur.com/3DgG8Yw)
+![alt text](https://imgur.com/3DgG8Yw.png)
 
 ## development timeline:
 - **September 15-16**:
